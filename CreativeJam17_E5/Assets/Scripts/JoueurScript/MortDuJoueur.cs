@@ -7,6 +7,9 @@ public class MortDuJoueur : MonoBehaviour
     Vector3 positionInitiale;
     bool pause = false;
     public DeathShop deathShop;
+
+    public System.Action openShop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,5 +40,9 @@ public class MortDuJoueur : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         transform.position = positionInitiale;
+        if(openShop != null)
+        {
+            openShop.Invoke();
+        }
     }
 }
