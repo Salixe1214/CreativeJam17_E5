@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Ramassable : MonoBehaviour
 {
-    public GameObject player;
     enum ramassables {bonusTemps, lance, epee, lancePierre};
-    // Start is called before the first frame update
-    void Start()
+    public float bonusTemps = 15;
+
+    void Awake()
     {
-        transform.GetComponent<PlayerDetector>().OnPlayerEnter += fonctionPasFaite;
+        transform.GetComponent<PlayerDetector>().OnPlayerEnter += ramasserObjet;
     }
 
     // Update is called once per frame
@@ -18,8 +18,35 @@ public class Ramassable : MonoBehaviour
         
     }
 
-    void fonctionPasFaite(GameObject player)
+    void ramasserObjet(GameObject player)
     {
+        if (transform.tag == "epee")
+        {
 
+            Destroy(gameObject);
+        }
+        else if (transform.tag == "lancePierre")
+        {
+
+            Destroy(gameObject);
+        }
+        else if (transform.tag == "lance")
+        {
+
+            Destroy(gameObject);
+        }
+        else if (transform.tag == "bonusTemps")
+        {
+            player.GetComponent<ResetTimer>().tempsAjouteEphemere += bonusTemps;
+            Destroy(gameObject);
+        }
+        else if (transform.tag == "arc")
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+
+        }
     }
 }
