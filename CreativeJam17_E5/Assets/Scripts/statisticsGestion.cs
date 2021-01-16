@@ -13,6 +13,9 @@ public class statisticsGestion : MonoBehaviour
     }
 
     int exp = 1000;
+    
+    // Le deathShop auquel on abonne le levelUping
+    public DeathShop deatShop;
 
     // Les stats du perso sont définies par son niveau de stats
     int niv_damages = 1;
@@ -26,10 +29,46 @@ public class statisticsGestion : MonoBehaviour
     float modif_speed = 1;
     float modif_resistence = 1;
 
+    // Event lorsque l'exp est update
+    static public System.Action<int> onXpChange;
+    static public System.Action<int> onDmgUp;
+    static public System.Action<int> onTimerUp;
+    static public System.Action<int> onSpeedUp;
+    static public System.Action<int> onResistUp;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(deatShop != null)
+        {
+            deatShop.BuyDmg += onLevelUpDamage;
+            deatShop.BuyResist += onLevelUpResistence;
+            deatShop.BuySpeed += onLevelUpSpeed;
+            deatShop.BuyTimer += onLevelUpTimer;
+        }
+
+        if (onXpChange != null)
+            onXpChange.Invoke(exp);
+
+        if (onDmgUp != null)
+            onDmgUp.Invoke(niv_damages);
+        if (onSpeedUp != null)
+            onSpeedUp.Invoke(niv_speed);
+        if (onTimerUp != null)
+            onTimerUp.Invoke(niv_timer);
+        if (onResistUp != null)
+            onResistUp.Invoke(niv_resistence);
+    }
+
+    private void OnDestroy()
+    {
+        if(deatShop != null)
+        {
+            deatShop.BuyDmg -= onLevelUpDamage;
+            deatShop.BuyResist -= onLevelUpResistence;
+            deatShop.BuySpeed -= onLevelUpSpeed;
+            deatShop.BuyTimer -= onLevelUpTimer;
+        }
     }
 
     // Update is called once per frame
@@ -66,7 +105,9 @@ public class statisticsGestion : MonoBehaviour
         {
             // Si le joueur a assé d'exp
             // On lui retire cet exp et augmente le niveau desire
-            exp -= getLevUpExp(niv); 
+            exp -= getLevUpExp(niv);
+            if (onXpChange != null)
+                onXpChange.Invoke(exp);
             niv++;
 
             switch (stat)
@@ -74,18 +115,26 @@ public class statisticsGestion : MonoBehaviour
                 case stats.Damage:
                     niv_damages = niv;
                     modif_damages = getModif(stats.Damage, niv);
+                    if (onDmgUp != null)
+                        onDmgUp.Invoke(niv_damages);
                     break;
                 case stats.Resistence:
                     niv_resistence = niv;
                     modif_resistence = getModif(stats.Resistence, niv);
+                    if (onResistUp != null)
+                        onResistUp.Invoke(niv_resistence);
                     break;
                 case stats.Speed:
                     niv_speed = niv;
                     modif_speed = getModif(stats.Speed, niv);
+                    if (onSpeedUp != null)
+                        onSpeedUp.Invoke(niv_speed);
                     break;
                 case stats.Timer:
                     niv_timer = niv;
                     modif_timer = getModif(stats.Timer, niv);
+                    if (onTimerUp != null)
+                        onTimerUp.Invoke(niv_timer);
                     break;
                 default:
                     break;
@@ -102,7 +151,7 @@ public class statisticsGestion : MonoBehaviour
 
     int getLevUpExp(int lvl)
     {
-        lvl = lvl + 1; // Car on veut L'exp pôur un niveau plus haut
+        lvl = lvl + 1; // Car on veut l'exp pour un niveau plus haut
 
         return (int) Mathf.Ceil((0.04f * (Mathf.Pow(lvl, 3))) + (0.8f * (Mathf.Pow(lvl, 2))) + (2 * lvl));
     }
@@ -231,5 +280,7 @@ public class statisticsGestion : MonoBehaviour
     public void onAddExp(int xp)
     {
         exp += xp;
+        if (onXpChange != null)
+            onXpChange.Invoke(exp);
     }
 }
