@@ -237,6 +237,7 @@ GameObject:
   - component: {fileID: 6361065307339300337}
   - component: {fileID: 6361065307339300336}
   - component: {fileID: 455382034638741889}
+  - component: {fileID: 1537969928}
   m_Layer: 12
   m_Name: Ghost
   m_TagString: Untagged
@@ -309,6 +310,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64712b40260c1334eb3d80babf1b6ced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1537969928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6361065307339300351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d8e2221116308347afbdc203d1a2ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entity: {fileID: 6361065307658348715}
+  timeBonus: {fileID: 5488753103159025165, guid: b058b96fb445e264e882ca128c58c284,
+    type: 3}
+  weapons:
+  - {fileID: 8224250821863691278, guid: 27cebf809ef5506418cfb4585e5bbafc, type: 3}
+  - {fileID: 4309632176058024747, guid: caa494a9e60bcb1438b5c4d1e72981c0, type: 3}
 --- !u!1 &6361065307658348695
 GameObject:
   m_ObjectHideFlags: 0
