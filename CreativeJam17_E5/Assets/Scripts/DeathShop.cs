@@ -11,13 +11,23 @@ public class DeathShop : MonoBehaviour
     public System.Action BuyResist;
     public System.Action ConfirmBuy;
 
-    public statisticsGestion stats;
+    public GameObject player;
+    statisticsGestion stats;
+    DamageableEntity playerDmgEntity;
 
     public Text xpText, dmgTxt, timerTxt, speedTxt, resistTxt;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (player != null)
+        {
+            stats = player.GetComponent<statisticsGestion>();
+            playerDmgEntity = player.GetComponent<DamageableEntity>();
+        }
+        else
+            Debug.Log("Tu dois passer un player au shop pour qu'il fonctionne! >:(");
+
         if (stats != null)
         {
             stats.onXpChange += updateXp;
@@ -27,13 +37,20 @@ public class DeathShop : MonoBehaviour
             stats.onSpeedUp += updateSpeed;
         }
         else
-            Debug.Log("Tu dois passer un player au shop pour qu'il fonctionne! >:(");
+            Debug.Log("Le player n'as pas de statisticGestion.");
+
+        if (playerDmgEntity != null)
+        {
+            playerDmgEntity.OnDeath += onPlayerDeath;
+        }
+        else
+            Debug.Log("Ton player n'as pas de DamageableEntity!");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDestroy()
@@ -43,8 +60,11 @@ public class DeathShop : MonoBehaviour
         stats.onResistUp -= updateResist;
         stats.onTimerUp -= updateTimer;
         stats.onSpeedUp -= updateSpeed;
+
+        playerDmgEntity.OnDeath -= onPlayerDeath;
     }
 
+    // Evenements
     public void onBuyDmgClic()
     {
         if(BuyDmg != null)
@@ -73,6 +93,12 @@ public class DeathShop : MonoBehaviour
     {
         if (ConfirmBuy != null)
             ConfirmBuy.Invoke();
+        gameObject.SetActive(false);
+    }
+
+    void onPlayerDeath()
+    {
+        gameObject.SetActive(true);
     }
 
     // Methodes pour updater l'information
