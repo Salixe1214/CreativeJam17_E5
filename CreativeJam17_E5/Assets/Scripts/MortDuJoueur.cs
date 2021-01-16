@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class MortDuJoueur : MonoBehaviour
 {
-    public ResetTimer timer;
     Vector3 positionInitiale;
     bool pause = false;
+    public DeathShop deathShop;
     // Start is called before the first frame update
     void Start()
     {
         positionInitiale = transform.position;
         transform.GetComponent<DamageableEntity>().OnDeath += joueurMeurt;
-        transform.GetComponent<DamageableEntity>().OnRevive += joueurRevivu;
+        deathShop.ConfirmBuy += joueurRevivu;
     }
 
     // Update is called once per frame
@@ -23,7 +23,6 @@ public class MortDuJoueur : MonoBehaviour
 
     void joueurMeurt()
     {
-        Debug.Log("meurt");
         if (!transform.GetComponent<DamageableEntity>().IsAlive() && transform.GetComponent<JoueurMouvement>().peutBouger)
         {
             transform.GetComponent<JoueurMouvement>().peutBouger = false;
