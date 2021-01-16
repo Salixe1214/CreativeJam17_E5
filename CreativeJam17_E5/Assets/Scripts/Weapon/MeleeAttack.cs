@@ -6,6 +6,9 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private float lifetimeSeconds;
+
+    private GameObject followObject;
+    private Vector2 offset;
     private float damage;
     private float deathTime;
 
@@ -19,12 +22,26 @@ public class MeleeAttack : MonoBehaviour
     private void Update()
     {
         // If its lifetime expired
+        if (followObject)
+        {
+            Vector2 followPos = new Vector2(followObject.transform.position.x, followObject.transform.position.y);
+            transform.position = followPos + offset;
+        }
+
         if (Time.time >= deathTime)
         {
             // Destroy itself
-            Debug.Log("shinu");
             Destroy(gameObject);
         }
+    }
+
+    public void FollowObject(GameObject obj, Vector2 followOffset)
+    {
+        followObject = obj;
+        offset = followOffset;
+
+        Vector2 followPos = new Vector2(followObject.transform.position.x, followObject.transform.position.y);
+        transform.position = followPos + offset;
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

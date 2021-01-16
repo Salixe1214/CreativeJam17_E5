@@ -20,13 +20,17 @@ public class DamageableEntity : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        // Take damage
-        currentHealth = Math.Max(0, (currentHealth - damage));
-
-        // If life drops to or under 0, die
-        if (currentHealth <= 0)
+        // Don't take damage if dead
+        if (isAlive)
         {
-            Die();
+            // Take damage
+            currentHealth = Math.Max(0, (currentHealth - damage));
+
+            // If life drops to or under 0, die
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
