@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 255846276740115009}
   - component: {fileID: 28690300316047610}
   m_Layer: 9
-  m_Name: BowProjectile
+  m_Name: LancePrefab
   m_TagString: lance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

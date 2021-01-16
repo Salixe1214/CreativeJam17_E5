@@ -32,9 +32,12 @@ public class WeaponSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (transform.GetComponent<JoueurMouvement>().peutBouger)
         {
-            Attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack();
+            }
         }
     }
 
