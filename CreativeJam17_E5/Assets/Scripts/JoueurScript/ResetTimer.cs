@@ -27,8 +27,8 @@ public class ResetTimer : MonoBehaviour
         if (tempsDeLaSession > resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
                                                                                 + tempsAjouteEphemere)
         {
-            float dommage = transform.GetComponent<DamageableEntity>().GetMaxHealth();
-            transform.GetComponent<DamageableEntity>().TakeDamage(dommage);
+            float dommage = transform.GetComponentInChildren<DamageableEntity>().GetMaxHealth();
+            transform.GetComponentInChildren<DamageableEntity>().TakeDamage(dommage);
         }
 
         // L'update du temps sur le UI
