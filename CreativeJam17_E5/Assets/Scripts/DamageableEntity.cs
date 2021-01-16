@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class DamageableEntity : MonoBehaviour
 {
-    [SerializeField] private float MaxHealth;
+    [SerializeField] private float maxHealth;
 
     private float currentHealth;
-    private float currentResistance;
     private bool isAlive;
 
     public Action OnDeath;
@@ -16,47 +15,56 @@ public class DamageableEntity : MonoBehaviour
        
     private void Awake()
     {
-        currentHealth = MaxHealth;
+        isAlive = true;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        // Take damage
-        float totalDamage = damage * currentResistance;
-        currentHealth = Math.Max(0, (currentHealth - totalDamage));
-
-        // If life drops to or under 0, die
-        if (currentHealth <= 0)
+        // Don't take damage if dead
+        if (isAlive)
         {
-            Die();
+            // Take damage
+            currentHealth = Math.Max(0, (currentHealth - damage));
+
+            // If life drops to or under 0, die
+            if (currentHealth <= 0)
+            {
+                Debug.Log("Shinu");
+                Die();
+            }
         }
     }
 
-    public void TakeTrueDamage(float damage)
+    public bool IsAlive()
     {
-        // Take Damage
-        currentHealth = Math.Max(0, (currentHealth - damage));
-
-        // If life drops to or under 0, die
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        return isAlive;
     }
 
-    public void SetResistance(float resistance)
+    public float GetMaxHealth()
     {
-        currentResistance = resistance;
+        return maxHealth;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetMaxHealth(float newMax, bool shouldHeal = true)
+    {
+        maxHealth = newMax;
+        currentHealth = maxHealth;
     }
 
     public void Revive()
     {
         // Prepare character for revive
         isAlive = true;
-        currentHealth = MaxHealth;
+        currentHealth = maxHealth;
 
         // Broadcast the revive event
-        OnRevive.Invoke();
+        if(OnRevive != null) OnRevive.Invoke();
     }
 
     private void Die()
@@ -65,6 +73,6 @@ public class DamageableEntity : MonoBehaviour
         isAlive = false;
 
         // Broadcast the death event
-        OnDeath.Invoke();
+        if(OnDeath != null) OnDeath.Invoke();
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     // The data of the weapon.
+    [SerializeField] protected Vector2 attackOffset;
+
     public WeaponData weaponData;
 
     // The durability left on the weapon.
@@ -59,6 +61,6 @@ public class Weapon : MonoBehaviour
     // When the weapon is broken. Update the UI and stuff.
     public void BreakWeapon()
     {
-        OnWeaponBroken.Invoke();
+        if(OnWeaponBroken != null) OnWeaponBroken.Invoke();
     }
 }

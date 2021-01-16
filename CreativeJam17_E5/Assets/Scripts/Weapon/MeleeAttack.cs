@@ -6,9 +6,12 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private float lifetimeSeconds;
-    private float damage;
-    private float deathTime;
+    [NonSerialized] public float Damage;
 
+    private GameObject followObject;
+    private Vector2 offset;
+
+    private float deathTime;
     public Action OnAttackHit;
 
     private void Awake()
@@ -19,15 +22,29 @@ public class MeleeAttack : MonoBehaviour
     private void Update()
     {
         // If its lifetime expired
+        if (followObject)
+        {
+            Vector2 followPos = new Vector2(followObject.transform.position.x, followObject.transform.position.y);
+            transform.position = followPos + offset;
+        }
+
         if (Time.time >= deathTime)
         {
             // Destroy itself
-            Debug.Log("shinu");
             Destroy(gameObject);
         }
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void FollowObject(GameObject obj, Vector2 followOffset)
+    {
+        followObject = obj;
+        offset = followOffset;
+
+        Vector2 followPos = new Vector2(followObject.transform.position.x, followObject.transform.position.y);
+        transform.position = followPos + offset;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         // Is it damageable?
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
@@ -38,8 +55,8 @@ public class MeleeAttack : MonoBehaviour
             {
                 // Deal your damage
                 // Possibility of a persistent projectile / hit-point system?
-                damageable.TakeDamage(damage);
-                OnAttackHit.Invoke();
+                damageable.TakeDamage(Damage);
+                if(OnAttackHit != null) OnAttackHit.Invoke();
             }
         }
     }
