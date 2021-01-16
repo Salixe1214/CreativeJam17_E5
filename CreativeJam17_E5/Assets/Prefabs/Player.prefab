@@ -42,7 +42,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -82,12 +82,12 @@ GameObject:
   - component: {fileID: 7419661508833625298}
   - component: {fileID: 7419661508833625301}
   - component: {fileID: 7419661508833625302}
-  - component: {fileID: 7419661508833625320}
   - component: {fileID: 7419661508833625303}
   - component: {fileID: 7419661508833625321}
   - component: {fileID: 7419661508833625322}
   - component: {fileID: 7419661508833625323}
   - component: {fileID: 3614422479432602242}
+  - component: {fileID: 7482208446569996178}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCharacter
@@ -213,29 +213,6 @@ MonoBehaviour:
   tempsAjouteEphemere: 0
   texte: {fileID: 0}
   deathShop: {fileID: 0}
---- !u!114 &7419661508833625320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419661508833625297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea263e5ea4e35c749a7622c840889a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lvl:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  dmg:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  xp: {fileID: 0}
 --- !u!114 &7419661508833625303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,3 +292,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &7482208446569996178
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419661508833625297}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.25
