@@ -45,6 +45,8 @@ public class DeathShop : MonoBehaviour
         }
         else
             Debug.Log("Ton player n'as pas de DamageableEntity!");
+
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
