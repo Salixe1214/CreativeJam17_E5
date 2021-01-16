@@ -2797,6 +2797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   velocity: {x: 0, y: 0}
+  peutBouger: 1
 --- !u!212 &1934191515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2897,9 +2898,6 @@ MonoBehaviour:
   resetTimer: 10
   tempsTotalDeJeu: 0
   texte: {fileID: 1042237560}
-  LaMortDuJoueur:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1934191519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2947,6 +2945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b43105b4f6fcc9408276936b85cd613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TestWeaponRef: {fileID: 1038051341890307797, guid: b69d3d704cd522c4a92fa10cecdd3c71,
+    type: 3}
   handsWeaponRef: {fileID: 3227194196513632196, guid: b156803d76ed13e41a153cc4e52f4eb0,
     type: 3}
 --- !u!114 &1934191522

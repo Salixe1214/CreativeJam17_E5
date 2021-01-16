@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,33 +7,35 @@ public class ProjectileBehavior : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float lifetimeSeconds;
-    private Rigidbody rigidBody;
+    [NonSerialized] public float Damage;
 
-    private float damage;
+    private Rigidbody2D rigidBody;
+
+
     private float deathTime;
 
     private void Awake()
     {
         deathTime = Time.time + lifetimeSeconds;
-        rigidBody = GetComponent<Rigidbody>();
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
         // Move the object "forwards"
-        Vector3 deltaPos = Vector3.right * movementSpeed * Time.deltaTime;
+        Vector3 deltaPos = transform.up * movementSpeed * Time.deltaTime;
         rigidBody.MovePosition(transform.position += deltaPos);
 
         // If its lifetime expired
         if (Time.time >= deathTime)
         {
             // Destroy itself
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
     // We collided with something!
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Is it damageable?
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
@@ -43,10 +46,10 @@ public class ProjectileBehavior : MonoBehaviour
             {
                 // Deal your damage
                 // Possibility of a persistent projectile / hit-point system?
-                damageable.TakeDamage(damage);
+                damageable.TakeDamage(Damage);
 
                 // Destroy itself
-                Destroy(this);
+                Destroy(gameObject);
             }
         }
     }

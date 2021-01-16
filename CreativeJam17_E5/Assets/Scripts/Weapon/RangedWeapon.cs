@@ -12,8 +12,8 @@ public class RangedWeapon : Weapon
         currentDurability--;
 
         // Spawn projectile! It'll do the rest itself.
-        // TODO: projectile rotation!
-        Instantiate(projectile, this.transform.position, Quaternion.identity);
+        GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+        proj.GetComponent<ProjectileBehavior>().Damage = weaponData.AttackDamage;
 
         base.ResolveAttack();
     }
