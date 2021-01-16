@@ -6,6 +6,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     // The data of the weapon.
+    [SerializeField] protected Vector2 attackOffset;
+
     public WeaponData weaponData;
 
     // The durability left on the weapon.
