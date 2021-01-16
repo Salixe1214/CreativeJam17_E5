@@ -2,11 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private List<LevelLogic> levels;
+    [SerializeField] private string gameOverSceneName;
 
     private int currentLevelId;
 
@@ -19,6 +21,7 @@ public class LevelManager : MonoBehaviour
         }
 
         player.GetComponentInChildren<DamageableEntity>().OnRevive += PlayerRevived;
+        player.GetComponent<MortDuJoueur>().openShop += VoidLevels;
 
         // Leave the first level active tho
         levels[0].SetLevelActive(true);
@@ -27,6 +30,14 @@ public class LevelManager : MonoBehaviour
     private void PlayerRevived()
     {
         ResetLevels();
+    }
+
+    public void VoidLevels()
+    {
+        for (int i = 0; i < levels.Count; i++)
+        {
+            levels[i].SetLevelActive(false);
+        }
     }
 
     public void ResetLevels()
@@ -57,7 +68,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             // End game!
-            Debug.Log("DADADADA!!!!");
+            SceneManager.LoadScene(gameOverSceneName);
         }
     }
 }

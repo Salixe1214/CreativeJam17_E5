@@ -1817,6 +1817,7 @@ MonoBehaviour:
   - {fileID: 1105836427}
   - {fileID: 1239246654}
   - {fileID: 2071312515}
+  gameOverSceneName: GameOver
 --- !u!1 &552380298 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7643781101254432784, guid: 4c3accf087974464596727b9cf2ccd05,
