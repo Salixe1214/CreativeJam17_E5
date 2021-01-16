@@ -15,7 +15,8 @@ public class DeathShop : MonoBehaviour
     statisticsGestion stats;
     MortDuJoueur deathBeheaviour;
 
-    public Text xpText, dmgTxt, timerTxt, speedTxt, resistTxt;
+    public Text xpText, dmgTxt, timerTxt, speedTxt, resistTxt, dmgExpNext;
+    public Text timerExpNext, speedExpNext, resistExpNext;
 
     // Start is called before the first frame update
     void Start()
@@ -112,20 +113,24 @@ public class DeathShop : MonoBehaviour
     void updateDmg(int lvl)
     {
         dmgTxt.text = lvl.ToString();
+        dmgExpNext.text = stats.getLevUpExp(lvl).ToString();
     }
 
     void updateTimer(int lvl)
     {
         timerTxt.text = lvl.ToString();
+        timerExpNext.text = stats.getLevUpExp(lvl).ToString();
     }
 
     void updateSpeed(int lvl)
     {
         speedTxt.text = lvl.ToString();
+        speedExpNext.text = stats.getLevUpExp(lvl).ToString();
     }
 
     void updateResist(int lvl)
     {
         resistTxt.text = lvl.ToString();
+        resistExpNext.text = stats.getLevUpExp(lvl).ToString();
     }
 }

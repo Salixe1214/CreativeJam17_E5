@@ -11,11 +11,14 @@ public class GhostMovement : MonoBehaviour
     private PlayerDetector playerDetector;
     private Rigidbody2D movementBody;
 
+    private Vector2 respawnPoint;
+
     // Player object, unless we chase something else for some reason
     private GameObject toChase;
 
     private void Awake()
     {
+        respawnPoint = transform.position;
         movementBody = GetComponent<Rigidbody2D>();
         playerDetector = GetComponentInChildren<PlayerDetector>();
 
@@ -46,5 +49,12 @@ public class GhostMovement : MonoBehaviour
             // Cap at a certain speed
             movementBody.velocity = Vector2.ClampMagnitude(movementBody.velocity, velocityCap);
         }
+    }
+
+    public void Respawn()
+    {
+        // Reset chase
+        toChase = null;
+        transform.position = respawnPoint;
     }
 }
