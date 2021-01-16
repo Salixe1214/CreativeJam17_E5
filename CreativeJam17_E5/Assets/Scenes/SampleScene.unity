@@ -2795,7 +2795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b2a2062277e8c44b3f865387763895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
+  velocity: {x: 0, y: 0}
 --- !u!212 &1934191515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2893,7 +2894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd53622df84547c4eab551111b0b75f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetTimer: 1200
+  resetTimer: 10
   tempsTotalDeJeu: 0
   texte: {fileID: 1042237560}
   LaMortDuJoueur:

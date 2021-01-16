@@ -7,11 +7,11 @@ public class JoueurMouvement : MonoBehaviour
     public float speed = 7f;
 
     float angle;
-    Vector2 velocity;
+    public Vector2 velocity;
 
     new Rigidbody2D rigidbody;
 
-    bool peutBouger = true;
+    public bool peutBouger = true;
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +36,9 @@ public class JoueurMouvement : MonoBehaviour
             transform.eulerAngles = Vector3.back * angle;
         }
 
+        float niveauSpeed = transform.GetComponent<statisticsGestion>().getSpeedLevel();
 
-
-        velocity = transform.up * speed * inputDirection.magnitude;
+        velocity = transform.up * speed * inputDirection.magnitude * niveauSpeed;
     }
 
     private void FixedUpdate()

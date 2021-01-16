@@ -114,7 +114,7 @@ public class statisticsGestion : MonoBehaviour
             case stats.Damage:
                 return niv;
             case stats.Resistence:
-                return Mathf.Log10(Mathf.Pow(niv, 2)) + niv;
+                return Mathf.Log10(Mathf.Pow(niv, 1.5f));
             case stats.Speed:
                 return Mathf.Log10(niv) + 1;
             case stats.Timer:
