@@ -3131,6 +3131,7 @@ MonoBehaviour:
   resetTimer: 10
   tempsTotalDeJeu: 0
   texte: {fileID: 1042237560}
+  deathShop: {fileID: 612192281}
 --- !u!114 &1934191519
 MonoBehaviour:
   m_ObjectHideFlags: 0
