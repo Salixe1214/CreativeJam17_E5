@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8224250821863691276}
   - component: {fileID: 8224250821863691279}
   - component: {fileID: 6874380016321535750}
+  - component: {fileID: 5954710295749806097}
+  - component: {fileID: -210833932071505333}
   m_Layer: 9
   m_Name: EpeePrefab
   m_TagString: epee
@@ -135,3 +137,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e195882351d88438ab012552759b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5954710295749806097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224250821863691278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26b505a524f7464ba34879bef5ea6c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &-210833932071505333
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224250821863691278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.74, y: 0.86}
+    newSize: {x: 3.74, y: 0.86}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.74, y: 0.86}
+  m_EdgeRadius: 0
