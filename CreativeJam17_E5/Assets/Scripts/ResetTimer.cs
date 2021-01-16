@@ -12,8 +12,6 @@ public class ResetTimer : MonoBehaviour
 
     public GameObject texte;
 
-    public UnityEvent LaMortDuJoueur;
-
     // Start is called before the first frame update
     void Start()
     {

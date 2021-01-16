@@ -11,7 +11,7 @@ public class JoueurMouvement : MonoBehaviour
 
     new Rigidbody2D rigidbody;
 
-    bool peutBouger = true;
+    public bool peutBouger = true;
 
     // Start is called before the first frame update
     void Start()
