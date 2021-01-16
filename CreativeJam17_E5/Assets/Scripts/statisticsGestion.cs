@@ -172,5 +172,24 @@ public class statisticsGestion : MonoBehaviour
         return exp;
     }
 
+    // Fonctions pour le UI
+    public void onLevelUpDamage()
+    {
+        levelUp(stats.Damage);
+    }
 
+    public void onLevelUpTimer()
+    {
+        levelUp(stats.Timer);
+    }
+
+    public void onLevelUpSpeed()
+    {
+        levelUp(stats.Speed);
+    }
+
+    public void onLevelUpResistence()
+    {
+        levelUp(stats.Resistence);
+    }
 }
