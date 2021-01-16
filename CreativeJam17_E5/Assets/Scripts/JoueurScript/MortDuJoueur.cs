@@ -22,20 +22,14 @@ public class MortDuJoueur : MonoBehaviour
     }
 
     void joueurMeurt()
-    {
-        if (!transform.GetComponent<DamageableEntity>().IsAlive() && transform.GetComponent<JoueurMouvement>().peutBouger)
-        {
-            transform.GetComponent<JoueurMouvement>().peutBouger = false;
-        }
+    {   
+        transform.GetComponent<JoueurMouvement>().peutBouger = false;
         StartCoroutine(attendreTroisSecondes());
     }
 
     void joueurRevivu()
     {
-        if (transform.GetComponent<DamageableEntity>().IsAlive() && !transform.GetComponent<JoueurMouvement>().peutBouger)
-        {
-            transform.GetComponent<JoueurMouvement>().peutBouger = true;
-        }
+        transform.GetComponent<JoueurMouvement>().peutBouger = true;
     }
 
     IEnumerator attendreTroisSecondes()
