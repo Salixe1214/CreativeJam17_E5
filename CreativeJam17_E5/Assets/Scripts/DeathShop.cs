@@ -11,16 +11,23 @@ public class DeathShop : MonoBehaviour
     public System.Action BuyResist;
     public System.Action ConfirmBuy;
 
+    public statisticsGestion stats;
+
     public Text xpText, dmgTxt, timerTxt, speedTxt, resistTxt;
 
     // Start is called before the first frame update
     void Start()
     {
-        statisticsGestion.onXpChange += updateXp;
-        statisticsGestion.onDmgUp += updateDmg;
-        statisticsGestion.onResistUp += updateResist;
-        statisticsGestion.onTimerUp += updateTimer;
-        statisticsGestion.onSpeedUp += updateSpeed;
+        if (stats != null)
+        {
+            stats.onXpChange += updateXp;
+            stats.onDmgUp += updateDmg;
+            stats.onResistUp += updateResist;
+            stats.onTimerUp += updateTimer;
+            stats.onSpeedUp += updateSpeed;
+        }
+        else
+            Debug.Log("Tu dois passer un player au shop pour qu'il fonctionne! >:(");
     }
 
     // Update is called once per frame
@@ -31,11 +38,11 @@ public class DeathShop : MonoBehaviour
 
     private void OnDestroy()
     {
-        statisticsGestion.onXpChange -= updateXp;
-        statisticsGestion.onDmgUp -= updateDmg;
-        statisticsGestion.onResistUp -= updateResist;
-        statisticsGestion.onTimerUp -= updateTimer;
-        statisticsGestion.onSpeedUp -= updateSpeed;
+        stats.onXpChange -= updateXp;
+        stats.onDmgUp -= updateDmg;
+        stats.onResistUp -= updateResist;
+        stats.onTimerUp -= updateTimer;
+        stats.onSpeedUp -= updateSpeed;
     }
 
     public void onBuyDmgClic()

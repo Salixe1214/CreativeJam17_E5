@@ -30,11 +30,11 @@ public class statisticsGestion : MonoBehaviour
     float modif_resistence = 1;
 
     // Event lorsque l'exp est update
-    static public System.Action<int> onXpChange;
-    static public System.Action<int> onDmgUp;
-    static public System.Action<int> onTimerUp;
-    static public System.Action<int> onSpeedUp;
-    static public System.Action<int> onResistUp;
+    public System.Action<int> onXpChange;
+    public System.Action<int> onDmgUp;
+    public System.Action<int> onTimerUp;
+    public System.Action<int> onSpeedUp;
+    public System.Action<int> onResistUp;
 
     // Start is called before the first frame update
     void Start()
