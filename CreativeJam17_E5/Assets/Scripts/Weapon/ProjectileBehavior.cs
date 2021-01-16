@@ -11,6 +11,7 @@ public class ProjectileBehavior : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
+    static public Action<GameObject> onHit;
 
     private float deathTime;
 
@@ -43,6 +44,11 @@ public class ProjectileBehavior : MonoBehaviour
 
         if (damageable)
         {
+            if (onHit != null)
+            {
+                onHit.Invoke(collision.gameObject);
+            }
+
             // Deal your damage
             // Possibility of a persistent projectile / hit-point system?
             damageable.TakeDamage(Damage);

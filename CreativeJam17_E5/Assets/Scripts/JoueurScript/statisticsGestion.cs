@@ -36,6 +36,8 @@ public class statisticsGestion : MonoBehaviour
     public System.Action<int> onSpeedUp;
     public System.Action<int> onResistUp;
 
+    static public System.Action lvlUp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,6 +109,11 @@ public class statisticsGestion : MonoBehaviour
 
         if(exp > getLevUpExp(niv))
         {
+            if(lvlUp != null)
+            {
+                lvlUp.Invoke();
+            }
+
             // Si le joueur a assé d'exp
             // On lui retire cet exp et augmente le niveau desire
             exp -= getLevUpExp(niv);

@@ -7,6 +7,8 @@ public class LingeringAttack : MonoBehaviour
 {
     [SerializeField] public float Damage;
     [SerializeField] public float HitboxRefreshSeconds;
+    
+    static public Action<GameObject> onHit;
 
     private Collider2D attackCollider;
 
@@ -21,6 +23,11 @@ public class LingeringAttack : MonoBehaviour
         DamageableEntity damageable = collision.gameObject.GetComponentInChildren<DamageableEntity>();
         if (damageable)
         {
+            if (onHit != null)
+            {
+                onHit.Invoke(collision.gameObject);
+            }
+
             // Deal your damage
             damageable.TakeDamage(Damage);
 
