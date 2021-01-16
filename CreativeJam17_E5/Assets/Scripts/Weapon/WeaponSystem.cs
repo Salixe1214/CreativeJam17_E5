@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponSystem : MonoBehaviour
 {
     // Current weapon!
+    [SerializeField] private GameObject TestWeaponRef;
     private GameObject currentWeaponObj;
     private Weapon currentWeapon;
 
@@ -22,6 +23,11 @@ public class WeaponSystem : MonoBehaviour
         handsWeaponObj = Instantiate(handsWeaponRef, this.transform);
         handsWeaponObj.transform.localPosition = new Vector3(0, 0, 0);
         handsWeapon = handsWeaponObj.GetComponent<MeleeWeapon>();
+
+        // Instantiate hands object
+        GameObject testweapon = Instantiate(TestWeaponRef, this.transform);
+        testweapon.transform.localPosition = new Vector3(0, 0, 0);
+        EquipWeapon(testweapon);
     }
 
     private void Update()
@@ -41,12 +47,13 @@ public class WeaponSystem : MonoBehaviour
             currentWeapon = currentWeaponObj.GetComponent<Weapon>();
             currentWeapon.OnWeaponBroken += WeaponBroken;
 
-            OnWeaponEquipped.Invoke();
+            if (OnWeaponEquipped != null) OnWeaponEquipped.Invoke();
         }
     }
 
     private void WeaponBroken()
     {
+        Debug.Log("BOKEN");
         currentWeapon.OnWeaponBroken -= WeaponBroken;
         currentWeapon = null;
         currentWeaponObj = null;
