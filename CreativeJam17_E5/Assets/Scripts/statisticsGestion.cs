@@ -39,13 +39,15 @@ public class statisticsGestion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(deatShop != null)
+        if (deatShop != null)
         {
             deatShop.BuyDmg += onLevelUpDamage;
             deatShop.BuyResist += onLevelUpResistence;
             deatShop.BuySpeed += onLevelUpSpeed;
             deatShop.BuyTimer += onLevelUpTimer;
         }
+        else
+            Debug.Log("T'as pas mis le deathShop dans ton player/n C'est pour ça ça marche pas :(");
 
         if (onXpChange != null)
             onXpChange.Invoke(exp);
