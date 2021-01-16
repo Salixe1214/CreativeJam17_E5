@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Ramassable : MonoBehaviour
 {
+
     enum ramassables {bonusTemps, lance, epee, lancePierre};
+
     public float bonusTemps = 15;
+
+    public GameObject joueur;
+
     bool estSurUneEpee = false;
     bool estSurUnArc = false;
     bool estSurUnLancePierre = false;
     bool estSurUneLance = false;
 
+    private void Start()
+    {
+        joueur = GameObject.FindGameObjectWithTag("MainCharacter");
+    }
     void Awake()
     {
         transform.GetComponent<PlayerDetector>().OnPlayerEnter += estSurUnObjet;
@@ -20,32 +29,48 @@ public class Ramassable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        while (estSurUneEpee)
+        if(estSurUneEpee)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-
+                if(joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
+                {
+                    joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
+                }
+                joueur.GetComponent<WeaponSystem>().EquipNewSword();
             }
         }
-        while (estSurUneLance)
+        if(estSurUneLance)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-
+                if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
+                {
+                    joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
+                }
+                joueur.GetComponent<WeaponSystem>().EquipNewSpear();
             }
         }
-        while (estSurUnLancePierre)
+        if(estSurUnLancePierre)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-
+                if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
+                {
+                    joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
+                }
+                joueur.GetComponent<WeaponSystem>().EquipNewSlingshot();
             }
         }
-        while (estSurUnArc)
+        if(estSurUnArc)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-
+                if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
+                {
+                    joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
+                }
+                joueur.GetComponent<WeaponSystem>().EquipNewBow();
             }
         }
     }
