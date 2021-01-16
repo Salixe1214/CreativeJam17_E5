@@ -31,9 +31,12 @@ public class WeaponSystem : MonoBehaviour
         handsWeapon = handsWeaponObj.GetComponent<MeleeWeapon>();
 
         // Instantiate hands object
-        GameObject testweapon = Instantiate(TestWeaponRef, this.transform);
-        testweapon.transform.localPosition = new Vector3(0, 0, 0);
-        EquipWeapon(testweapon);
+        if (TestWeaponRef)
+        {
+            GameObject testweapon = Instantiate(TestWeaponRef, this.transform);
+            testweapon.transform.localPosition = new Vector3(0, 0, 0);
+            EquipWeapon(testweapon);
+        }
     }
 
     private void Update()
