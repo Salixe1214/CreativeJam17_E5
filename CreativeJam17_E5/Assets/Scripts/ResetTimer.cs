@@ -26,11 +26,13 @@ public class ResetTimer : MonoBehaviour
         {
             float dommage = transform.GetComponent<DamageableEntity>().GetMaxHealth();
             transform.GetComponent<DamageableEntity>().TakeDamage(dommage);
+
         }
 
         // L'update du temps sur le UI
         afficherTempsRestant();
     }
+
 
 
     void afficherTempsRestant()

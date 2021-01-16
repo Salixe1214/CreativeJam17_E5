@@ -30,7 +30,6 @@ public class DamageableEntity : MonoBehaviour
             // If life drops to or under 0, die
             if (currentHealth <= 0)
             {
-                Debug.Log("Shinu");
                 Die();
             }
         }
@@ -71,8 +70,10 @@ public class DamageableEntity : MonoBehaviour
     {
         // Prepare character for death
         isAlive = false;
-
         // Broadcast the death event
-        if(OnDeath != null) OnDeath.Invoke();
+        if(OnDeath != null)
+        {
+            OnDeath.Invoke();
+        }
     }
 }

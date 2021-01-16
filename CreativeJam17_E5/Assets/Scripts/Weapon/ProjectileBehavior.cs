@@ -38,19 +38,16 @@ public class ProjectileBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Is it damageable?
-        DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
+        DamageableEntity damageable = collision.transform.parent.GetComponentInChildren<DamageableEntity>();
         if (damageable)
         {
-            // Tag system to prevent team damage!
-            if (damageable.tag != this.tag)
-            {
-                // Deal your damage
-                // Possibility of a persistent projectile / hit-point system?
-                damageable.TakeDamage(Damage);
+            // Deal your damage
+            // Possibility of a persistent projectile / hit-point system?
+            Debug.Log("Deal Damage to: " + collision.transform.parent.name);
+            damageable.TakeDamage(Damage);
 
-                // Destroy itself
-                Destroy(gameObject);
-            }
+            // Destroy itself
+            Destroy(gameObject);
         }
     }
 }
