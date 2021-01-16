@@ -6,47 +6,80 @@ public class Ramassable : MonoBehaviour
 {
     enum ramassables {bonusTemps, lance, epee, lancePierre};
     public float bonusTemps = 15;
+    bool estSurUneEpee = false;
+    bool estSurUnArc = false;
+    bool estSurUnLancePierre = false;
+    bool estSurUneLance = false;
 
     void Awake()
     {
-        transform.GetComponent<PlayerDetector>().OnPlayerEnter += ramasserObjet;
+        transform.GetComponent<PlayerDetector>().OnPlayerEnter += estSurUnObjet;
+        transform.GetComponent<PlayerDetector>().OnPlayerExit += sortDeSurUnObjet;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        while (estSurUneEpee)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
+        }
+        while (estSurUneLance)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
+        }
+        while (estSurUnLancePierre)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
+        }
+        while (estSurUnArc)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+
+            }
+        }
     }
 
-    void ramasserObjet(GameObject player)
+    void estSurUnObjet(GameObject player)
     {
         if (transform.tag == "epee")
         {
-
-            Destroy(gameObject);
+            estSurUneEpee = true;
         }
         else if (transform.tag == "lancePierre")
         {
-
-            Destroy(gameObject);
+            estSurUnLancePierre = true;
         }
         else if (transform.tag == "lance")
         {
-
-            Destroy(gameObject);
+            estSurUneLance = true;
         }
         else if (transform.tag == "bonusTemps")
         {
             player.GetComponent<ResetTimer>().tempsAjouteEphemere += bonusTemps;
             Destroy(gameObject);
         }
-        else if (transform.tag == "arc")
+        if (transform.tag == "epee")
         {
-            Destroy(gameObject);
+            estSurUneEpee = true;
         }
-        else
-        {
+    }
 
-        }
+    void sortDeSurUnObjet()
+    {
+        estSurUneEpee = false;
+        estSurUnArc = false;
+        estSurUnLancePierre = false;
+        estSurUneLance = false;
     }
 }
