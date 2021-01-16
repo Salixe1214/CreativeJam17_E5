@@ -11,7 +11,7 @@ public class MortDuJoueur : MonoBehaviour
     void Start()
     {
         positionInitiale = transform.position;
-        transform.GetComponent<DamageableEntity>().OnDeath += joueurMeurt;
+        transform.GetComponentInChildren<DamageableEntity>().OnDeath += joueurMeurt;
         deathShop.ConfirmBuy += joueurRevivu;
     }
 
@@ -30,7 +30,7 @@ public class MortDuJoueur : MonoBehaviour
     void joueurRevivu()
     {
         transform.GetComponent<JoueurMouvement>().peutBouger = true;
-        GetComponent<DamageableEntity>().Revive();
+        GetComponentInChildren<DamageableEntity>().Revive();
     }
 
     IEnumerator attendreTroisSecondes()

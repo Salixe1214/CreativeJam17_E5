@@ -23,7 +23,7 @@ public class DeathShop : MonoBehaviour
         if (player != null)
         {
             stats = player.GetComponent<statisticsGestion>();
-            playerDmgEntity = player.GetComponent<DamageableEntity>();
+            playerDmgEntity = player.GetComponentInChildren<DamageableEntity>();
         }
         else
             Debug.Log("Tu dois passer un player au shop pour qu'il fonctionne! >:(");

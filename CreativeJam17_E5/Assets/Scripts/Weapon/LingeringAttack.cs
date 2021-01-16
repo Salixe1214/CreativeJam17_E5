@@ -17,8 +17,9 @@ public class LingeringAttack : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collided: " + collision.name);
         // Is it damageable?
-        DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
+        DamageableEntity damageable = collision.gameObject.GetComponentInChildren<DamageableEntity>();
         if (damageable)
         {
             // Deal your damage
