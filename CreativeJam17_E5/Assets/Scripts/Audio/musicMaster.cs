@@ -196,7 +196,7 @@ public class musicMaster : MonoBehaviour
     IEnumerator playUISound(AudioClip[] clip)
     {
         sonJou = true;
-        AudioClip son = clip[(int)Random.Range(0, meleeAtkSound.Length)];
+        AudioClip son = clip[(int)Random.Range(0, clip.Length)];
         sourceUI.PlayOneShot(son);
         yield return new WaitForSeconds(son.length);
         sonJou = false;
