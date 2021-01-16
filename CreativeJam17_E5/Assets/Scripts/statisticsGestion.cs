@@ -116,4 +116,52 @@ public class statisticsGestion : MonoBehaviour
                 return 0;
         }
     }
+
+    // Getteurs des modificateurs
+    public float getDamageModif()
+    {
+        return modif_damages;
+    }
+
+    public float gatTimerModif()
+    {
+        return modif_timer;
+    }
+    
+    public float getSpeedModif()
+    {
+        return modif_speed;
+    }
+    
+    public float getResistenceModif()
+    {
+        return modif_resistence;
+    }
+
+    // Getteurs des levels
+    public float getDamageLevel()
+    {
+        return modif_damages;
+    }
+
+    public float gatTimerLevel()
+    {
+        return modif_timer;
+    }
+
+    public float getSpeedLevel()
+    {
+        return modif_speed;
+    }
+
+    public float getResistenceLevel()
+    {
+        return modif_resistence;
+    }
+
+    // Getteur de l'exp
+    public int getExp()
+    {
+        return exp;
+    }
 }
