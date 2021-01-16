@@ -62,7 +62,7 @@ public class WeaponSystem : MonoBehaviour
 
     private void BreakWeapon()
     {
-        currentWeapon.OnWeaponBroken -= WeaponBroken;
+        currentWeapon.OnWeaponBroken -= BreakWeapon;
         Destroy(currentWeapon);
 
         currentWeapon = null;
