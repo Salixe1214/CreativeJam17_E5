@@ -6,6 +6,11 @@ TagManager:
   tags:
   - MainCharacter
   - Enemy
+  - Undefined
+  - lance
+  - epee
+  - bonusTemps
+  - lancePierre
   layers:
   - Default
   - TransparentFX

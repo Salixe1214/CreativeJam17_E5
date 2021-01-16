@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -255,8 +255,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 221.6, y: 125.1}
-  m_SizeDelta: {x: -443.3106, y: -250.28111}
+  m_AnchoredPosition: {x: 361.8, y: 199.11}
+  m_SizeDelta: {x: -723.70856, y: -398.29178}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &42469045
 MonoBehaviour:
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 84753298}
   - component: {fileID: 84753297}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: TimerTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -885,6 +885,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ModelBuyUI
       objectReference: {fileID: 0}
+    - target: {fileID: 1496505193275826545, guid: e208ceae852206b428a90d373b5bdc20,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1934191513}
     - target: {fileID: 1496505193275826549, guid: e208ceae852206b428a90d373b5bdc20,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1147,7 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deatShop: {fileID: 612192281}
-  lvlUpSong: {fileID: 0}
+  lvlUpSong: {fileID: 8300000, guid: 28448eca054309c44bd554d44fef5aa4, type: 3}
 --- !u!114 &1934191520
 MonoBehaviour:
   m_ObjectHideFlags: 0
