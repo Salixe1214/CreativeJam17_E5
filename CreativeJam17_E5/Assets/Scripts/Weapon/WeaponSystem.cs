@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
+    [Header("Weapon Prefabs")]
+    [SerializeField] private GameObject SwordRef;
+    [SerializeField] private GameObject SpearRef;
+    [SerializeField] private GameObject BowRef;
+    [SerializeField] private GameObject SlingshotRef;
+
     // Current weapon!
     [SerializeField] private GameObject TestWeaponRef;
     private GameObject currentWeaponObj;
@@ -48,16 +54,17 @@ public class WeaponSystem : MonoBehaviour
         {
             currentWeaponObj = newWeapon;
             currentWeapon = currentWeaponObj.GetComponent<Weapon>();
-            currentWeapon.OnWeaponBroken += WeaponBroken;
+            currentWeapon.OnWeaponBroken += BreakWeapon;
 
             if (OnWeaponEquipped != null) OnWeaponEquipped.Invoke();
         }
     }
 
-    private void WeaponBroken()
+    private void BreakWeapon()
     {
-        Debug.Log("BOKEN");
         currentWeapon.OnWeaponBroken -= WeaponBroken;
+        Destroy(currentWeapon);
+
         currentWeapon = null;
         currentWeaponObj = null;
     }
@@ -73,5 +80,48 @@ public class WeaponSystem : MonoBehaviour
             // Attack with your hands!
             handsWeapon.AttemptAttack();
         }
+    }
+
+    public Weapon GetCurrentWeapon()
+    {
+        return currentWeapon;
+    }
+
+    // Destroys it
+    public void DropCurrentWeapon()
+    {
+        BreakWeapon();
+    }
+
+    public void EquipNewSword()
+    {
+        // Instantiate hands object
+        GameObject newWeapon = Instantiate(SwordRef, this.transform);
+        newWeapon.transform.localPosition = new Vector3(0, 0, 0);
+        EquipWeapon(newWeapon);
+    }
+
+    public void EquipNewSpear()
+    {
+        // Instantiate hands object
+        GameObject newWeapon = Instantiate(SpearRef, this.transform);
+        newWeapon.transform.localPosition = new Vector3(0, 0, 0);
+        EquipWeapon(newWeapon);
+    }
+
+    public void EquipNewSlingshot()
+    {
+        // Instantiate hands object
+        GameObject newWeapon = Instantiate(SlingshotRef, this.transform);
+        newWeapon.transform.localPosition = new Vector3(0, 0, 0);
+        EquipWeapon(newWeapon);
+    }
+
+    public void EquipNewBow()
+    {
+        // Instantiate hands object
+        GameObject newWeapon = Instantiate(BowRef, this.transform);
+        newWeapon.transform.localPosition = new Vector3(0, 0, 0);
+        EquipWeapon(newWeapon);
     }
 }
