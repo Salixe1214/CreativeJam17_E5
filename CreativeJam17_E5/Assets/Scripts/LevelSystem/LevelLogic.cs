@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class LevelLogic : MonoBehaviour
 {
+    [Header("Level info")]
+    [SerializeField] private int levelId;
+
+    [Header("Level objects")]
+    [SerializeField] private GameObject levelSpawnPoint;
     [SerializeField] private List<GameObject> enemies;
     [SerializeField] private List<GameObject> breakables;
     [SerializeField] private GameObject lockedDoor;
     [SerializeField] private PlayerDetector nextLevelDetector;
 
-    public Action OnLevelClear;
+    public Action<int> OnLevelClear;
 
     private int defeatedEnemyCount;
 
@@ -28,8 +33,7 @@ public class LevelLogic : MonoBehaviour
 
     private void CompleteLevel(GameObject obj)
     {
-        SetLevelActive(false);
-        if (OnLevelClear != null) OnLevelClear.Invoke();
+        if (OnLevelClear != null) OnLevelClear.Invoke(levelId);
     }
 
     private void OnEnemyDeath()
@@ -66,5 +70,12 @@ public class LevelLogic : MonoBehaviour
                 enemies[i].SetActive(active);
             }
         }
+
+        gameObject.SetActive(active);
+    }
+
+    public Vector2 GetLevelSpawnPoint()
+    {
+        return levelSpawnPoint.transform.position;
     }
 }
