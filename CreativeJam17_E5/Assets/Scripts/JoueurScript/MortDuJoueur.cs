@@ -5,7 +5,6 @@ using UnityEngine;
 public class MortDuJoueur : MonoBehaviour
 {
     Vector3 positionInitiale;
-    bool pause = false;
     public DeathShop deathShop;
 
     public System.Action openShop;
