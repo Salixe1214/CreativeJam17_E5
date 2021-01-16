@@ -12,7 +12,7 @@ public class statisticsGestion : MonoBehaviour
         Resistence
     }
 
-    int exp;
+    int exp = 1000;
 
     // Les stats du perso sont définies par son niveau de stats
     int niv_damages = 1;
@@ -38,8 +38,8 @@ public class statisticsGestion : MonoBehaviour
         
     }
 
-    // 
-    void levelUp(stats stat)
+    // Fonction de levelUp de base
+    bool levelUp(stats stat)
     {
         int niv;
 
@@ -84,12 +84,19 @@ public class statisticsGestion : MonoBehaviour
                     modif_speed = getModif(stats.Speed, niv);
                     break;
                 case stats.Timer:
-                    niv_speed = niv;
-                    modif_speed = getModif(stats.Speed, niv);
+                    niv_timer = niv;
+                    modif_timer = getModif(stats.Timer, niv);
                     break;
                 default:
                     break;
             }
+
+            return true;
+        }
+        else
+        {
+            Debug.Log("Pas assez d'exp");
+            return false;
         }
     }
 
@@ -97,7 +104,7 @@ public class statisticsGestion : MonoBehaviour
     {
         lvl = lvl + 1; // Car on veut L'exp pôur un niveau plus haut
 
-        return (int) Mathf.Ceil((0.04f * (lvl ^ 3)) + (0.8f * (lvl ^ 2)) + (2 * lvl));
+        return (int) Mathf.Ceil((0.04f * (Mathf.Pow(lvl, 3))) + (0.8f * (Mathf.Pow(lvl, 2))) + (2 * lvl));
     }
 
     float getModif(stats stat, int niv)
@@ -107,11 +114,11 @@ public class statisticsGestion : MonoBehaviour
             case stats.Damage:
                 return niv;
             case stats.Resistence:
-                return Mathf.Ceil(1.3f * niv) - 1;
+                return Mathf.Log10(Mathf.Pow(niv, 2)) + niv;
             case stats.Speed:
-                return Mathf.Log(niv) + 1;
+                return Mathf.Log10(niv) + 1;
             case stats.Timer:
-                return Mathf.Log(niv ^ 2) + niv;
+                return Mathf.Ceil(1.3f * niv) - 1;
             default:
                 return 0;
         }
@@ -123,7 +130,7 @@ public class statisticsGestion : MonoBehaviour
         return modif_damages;
     }
 
-    public float gatTimerModif()
+    public float getTimerModif()
     {
         return modif_timer;
     }
@@ -138,30 +145,91 @@ public class statisticsGestion : MonoBehaviour
         return modif_resistence;
     }
 
+    public float getModifExternal(int stat)
+    {
+        switch (stat)
+        {
+            case (int)stats.Damage:
+                return getDamageModif();
+            case (int)stats.Resistence:
+                return getResistenceModif();
+            case (int)stats.Speed:
+                return getSpeedModif();
+            case (int)stats.Timer:
+                return getTimerModif();
+            default:
+                return 0f;
+        }
+    }
+
     // Getteurs des levels
     public float getDamageLevel()
     {
-        return modif_damages;
+        return niv_damages;
     }
 
-    public float gatTimerLevel()
+    public float getTimerLevel()
     {
-        return modif_timer;
+        return niv_timer;
     }
 
     public float getSpeedLevel()
     {
-        return modif_speed;
+        return niv_speed;
     }
 
     public float getResistenceLevel()
     {
-        return modif_resistence;
+        return niv_resistence;
+    }
+
+    public float getLvl(int stat)
+    {
+        switch (stat)
+        {
+            case (int) stats.Damage:
+                return getDamageLevel();
+            case (int) stats.Resistence:
+                return getResistenceLevel();
+            case (int) stats.Speed:
+                return getSpeedLevel();
+            case (int) stats.Timer:
+                return getTimerLevel();
+            default:
+                return 0f;
+        }
     }
 
     // Getteur de l'exp
     public int getExp()
     {
         return exp;
+    }
+
+    // Fonctions pour le UI
+    public void onLevelUpDamage()
+    {
+        levelUp(stats.Damage);
+    }
+
+    public void onLevelUpTimer()
+    {
+        levelUp(stats.Timer);
+    }
+
+    public void onLevelUpSpeed()
+    {
+        levelUp(stats.Speed);
+    }
+
+    public void onLevelUpResistence()
+    {
+        levelUp(stats.Resistence);
+    }
+
+
+    public void onAddExp(int xp)
+    {
+        exp += xp;
     }
 }
