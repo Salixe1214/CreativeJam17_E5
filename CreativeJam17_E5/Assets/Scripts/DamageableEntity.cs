@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class DamageableEntity : MonoBehaviour
 {
-    [SerializeField] private float MaxHealth;
+    [SerializeField] private float maxHealth;
 
     private float currentHealth;
-    private float currentResistance;
     private bool isAlive;
 
     public Action OnDeath;
@@ -16,25 +15,12 @@ public class DamageableEntity : MonoBehaviour
        
     private void Awake()
     {
-        currentHealth = MaxHealth;
+        currentHealth = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
         // Take damage
-        float totalDamage = damage * currentResistance;
-        currentHealth = Math.Max(0, (currentHealth - totalDamage));
-
-        // If life drops to or under 0, die
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
-    }
-
-    public void TakeTrueDamage(float damage)
-    {
-        // Take Damage
         currentHealth = Math.Max(0, (currentHealth - damage));
 
         // If life drops to or under 0, die
@@ -44,16 +30,27 @@ public class DamageableEntity : MonoBehaviour
         }
     }
 
-    public void SetResistance(float resistance)
+    public float GetMaxHealth()
     {
-        currentResistance = resistance;
+        return maxHealth;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public void SetMaxHealth(float newMax, bool shouldHeal = true)
+    {
+        maxHealth = newMax;
+        currentHealth = maxHealth;
     }
 
     public void Revive()
     {
         // Prepare character for revive
         isAlive = true;
-        currentHealth = MaxHealth;
+        currentHealth = maxHealth;
 
         // Broadcast the revive event
         OnRevive.Invoke();
