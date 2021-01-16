@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 698167700107340908}
   - component: {fileID: 698167700107340909}
   - component: {fileID: 698167700107340910}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BroadswordAttack
   m_TagString: MainCharacter
   m_Icon: {fileID: 0}
