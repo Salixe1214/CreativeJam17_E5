@@ -26,9 +26,8 @@ public class ResetTimer : MonoBehaviour
         tempsDeLaSession = Time.time - tempsTotalDeJeu;
         if (tempsDeLaSession > resetTimer)
         {
-            LaMortDuJoueur.Invoke();
-            tempsTotalDeJeu += tempsDeLaSession;
-            tempsDeLaSession = 0;
+            float dommage = transform.GetComponent<DamageableEntity>().GetMaxHealth();
+            transform.GetComponent<DamageableEntity>().TakeDamage(dommage);
         }
 
         // L'update du temps sur le UI
