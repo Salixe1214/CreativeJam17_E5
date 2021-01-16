@@ -30,6 +30,7 @@ public class MortDuJoueur : MonoBehaviour
     void joueurRevivu()
     {
         transform.GetComponent<JoueurMouvement>().peutBouger = true;
+        GetComponent<DamageableEntity>().Revive();
     }
 
     IEnumerator attendreTroisSecondes()

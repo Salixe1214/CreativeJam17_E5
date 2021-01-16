@@ -8,6 +8,7 @@ public class ResetTimer : MonoBehaviour
     public float resetTimer = 1200;
     public float tempsTotalDeJeu = 0;
 
+    float tempsAjouteEphemere = 0;
     float tempsDeLaSession;
 
     public GameObject texte;
@@ -23,7 +24,8 @@ public class ResetTimer : MonoBehaviour
     void Update()
     {
         tempsDeLaSession = Time.time - tempsTotalDeJeu;
-        if (tempsDeLaSession > resetTimer*transform.GetComponent<statisticsGestion>().getTimerModif())
+        if (tempsDeLaSession > resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
+                                                                                + tempsAjouteEphemere)
         {
             float dommage = transform.GetComponent<DamageableEntity>().GetMaxHealth();
             transform.GetComponent<DamageableEntity>().TakeDamage(dommage);
@@ -37,9 +39,19 @@ public class ResetTimer : MonoBehaviour
 
     void afficherTempsRestant()
     {
-        int secondes = Mathf.FloorToInt((resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif() - tempsDeLaSession) % 60);
-        int minutes = Mathf.FloorToInt((resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif() - tempsDeLaSession) / 60);
-        string tempsEnString = minutes.ToString() + ":" + secondes.ToString();
+        int secondes = Mathf.FloorToInt((resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
+                                                                    +   tempsAjouteEphemere - tempsDeLaSession) % 60);
+        int minutes = Mathf.FloorToInt((resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
+                                                                    + tempsAjouteEphemere - tempsDeLaSession) / 60);
+        string tempsEnString;
+        if (GetComponent<JoueurMouvement>().peutBouger)
+        {
+            tempsEnString = minutes.ToString() + ":" + secondes.ToString();
+        }
+        else 
+        { 
+            tempsEnString = "t'es mort\n maudit \npo bon";
+        }
         texte.GetComponent<UnityEngine.UI.Text>().text = tempsEnString;
     }
 
