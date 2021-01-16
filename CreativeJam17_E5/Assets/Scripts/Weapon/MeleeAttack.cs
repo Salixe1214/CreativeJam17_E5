@@ -50,14 +50,9 @@ public class MeleeAttack : MonoBehaviour
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
         if (damageable)
         {
-            // Tag system to prevent team damage!
-            if (damageable.tag != this.tag)
-            {
-                // Deal your damage
-                // Possibility of a persistent projectile / hit-point system?
-                damageable.TakeDamage(Damage);
-                if(OnAttackHit != null) OnAttackHit.Invoke();
-            }
+            // Deal your damage
+            // Possibility of a persistent projectile / hit-point system?
+            damageable.TakeDamage(Damage);
         }
     }
 }
