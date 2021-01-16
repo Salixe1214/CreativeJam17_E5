@@ -41,12 +41,10 @@ public class ProjectileBehavior : MonoBehaviour
         // Is it damageable?
         damageable = collision.GetComponent<DamageableEntity>();
 
-        Debug.Log("Hit: " + collision.name);
         if (damageable)
         {
             // Deal your damage
             // Possibility of a persistent projectile / hit-point system?
-            Debug.Log("Deal Damage to: " + damageable.name);
             damageable.TakeDamage(Damage);
 
             // Destroy itself

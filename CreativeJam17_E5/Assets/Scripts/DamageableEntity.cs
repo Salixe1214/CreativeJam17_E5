@@ -30,7 +30,6 @@ public class DamageableEntity : MonoBehaviour
             // If life drops to or under 0, die
             if (currentHealth <= 0)
             {
-                Debug.Log("Death of: " + gameObject.name);
                 Die();
             }
         }
