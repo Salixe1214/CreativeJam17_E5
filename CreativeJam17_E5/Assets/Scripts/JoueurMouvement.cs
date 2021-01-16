@@ -46,6 +46,5 @@ public class JoueurMouvement : MonoBehaviour
     {
         // Deplacement du personnage devant lui.
         rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
-        Debug.Log(velocity);
     }
 }
