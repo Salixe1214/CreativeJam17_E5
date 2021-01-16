@@ -6,12 +6,12 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private float lifetimeSeconds;
+    [NonSerialized] public float Damage;
 
     private GameObject followObject;
     private Vector2 offset;
-    private float damage;
-    private float deathTime;
 
+    private float deathTime;
     public Action OnAttackHit;
 
     private void Awake()
@@ -44,7 +44,7 @@ public class MeleeAttack : MonoBehaviour
         transform.position = followPos + offset;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         // Is it damageable?
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
@@ -55,8 +55,8 @@ public class MeleeAttack : MonoBehaviour
             {
                 // Deal your damage
                 // Possibility of a persistent projectile / hit-point system?
-                damageable.TakeDamage(damage);
-                OnAttackHit.Invoke();
+                damageable.TakeDamage(Damage);
+                if(OnAttackHit != null) OnAttackHit.Invoke();
             }
         }
     }

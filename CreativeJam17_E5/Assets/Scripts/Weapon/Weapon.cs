@@ -61,6 +61,6 @@ public class Weapon : MonoBehaviour
     // When the weapon is broken. Update the UI and stuff.
     public void BreakWeapon()
     {
-        OnWeaponBroken.Invoke();
+        if(OnWeaponBroken != null) OnWeaponBroken.Invoke();
     }
 }
