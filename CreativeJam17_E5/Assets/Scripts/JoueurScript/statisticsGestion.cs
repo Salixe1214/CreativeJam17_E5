@@ -36,16 +36,9 @@ public class statisticsGestion : MonoBehaviour
     public System.Action<int> onSpeedUp;
     public System.Action<int> onResistUp;
 
-    // Audio sources
-    public AudioClip lvlUpSong;
-    AudioSource audioSource;
-
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            Debug.Log("Pas de source audio");
         if (deatShop != null)
         {
             deatShop.BuyDmg += onLevelUpDamage;
@@ -150,9 +143,6 @@ public class statisticsGestion : MonoBehaviour
                 default:
                     break;
             }
-
-            
-            audioSource.PlayOneShot(lvlUpSong, 1.0f);
 
             return true;
         }
