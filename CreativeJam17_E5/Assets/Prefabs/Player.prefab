@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7419661508833625321}
   - component: {fileID: 7419661508833625322}
   - component: {fileID: 7419661508833625323}
+  - component: {fileID: 3614422479432602242}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCharacter
@@ -148,12 +149,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4f755396d4490ce44aadd0b048a9d05f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e936cdc2025b954b863348a609f31a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
-  m_Size: {x: 3, y: 3}
+  m_Size: {x: 1.48, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resetTimer: 10
   tempsTotalDeJeu: 0
+  tempsAjouteEphemere: 0
   texte: {fileID: 0}
   deathShop: {fileID: 0}
 --- !u!114 &7419661508833625320
@@ -260,6 +262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b43105b4f6fcc9408276936b85cd613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwordRef: {fileID: 0}
+  SpearRef: {fileID: 0}
+  BowRef: {fileID: 0}
+  SlingshotRef: {fileID: 0}
   TestWeaponRef: {fileID: 1038051341890307797, guid: b69d3d704cd522c4a92fa10cecdd3c71,
     type: 3}
   handsWeaponRef: {fileID: 3227194196513632196, guid: b156803d76ed13e41a153cc4e52f4eb0,
@@ -290,3 +296,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathShop: {fileID: 0}
+--- !u!95 &3614422479432602242
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419661508833625297}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee94eb1fe5493734aa0a38e775ce1f8b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
