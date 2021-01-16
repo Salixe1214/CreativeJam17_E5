@@ -10,7 +10,8 @@ public class MeleeWeapon : Weapon
     {
         // Spawn attack! It'll do the rest itself.
         // TODO: projectile rotation!
-        GameObject attack = Instantiate(meleeAttack, this.transform.position, Quaternion.identity);
+        Vector2 position = new Vector2(transform.position.x, transform.position.y);
+        GameObject attack = Instantiate(meleeAttack, position, Quaternion.identity);
 
         // Subscribe to the hit event!
         base.ResolveAttack();

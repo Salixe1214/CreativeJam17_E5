@@ -32,7 +32,7 @@ public class ProjectileBehavior : MonoBehaviour
     }
 
     // We collided with something!
-    private void OnCollisionEnter2D(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // Is it damageable?
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();

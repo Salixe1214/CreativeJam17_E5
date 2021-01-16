@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Weapon/WeaponData")]
 public class WeaponData : ScriptableObject
 {
     [Header("UI properties")]

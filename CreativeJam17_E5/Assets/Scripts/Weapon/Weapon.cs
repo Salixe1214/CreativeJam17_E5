@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    // The data of the weapon.
+    public WeaponData weaponData;
+
     // The durability left on the weapon.
     protected int currentDurability;
-    // The data of the weapon.
-    protected WeaponData weaponData;
 
     // To prevent spamming attacks
     protected float lastAttack;
@@ -24,7 +25,7 @@ public class Weapon : MonoBehaviour
     public void AttemptAttack()
     {
         float allowedAttackTime = lastAttack + weaponData.CooldownSeconds;
-        if (allowedAttackTime >= Time.time)
+        if (allowedAttackTime <= Time.time)
         {
             Attack();
         }

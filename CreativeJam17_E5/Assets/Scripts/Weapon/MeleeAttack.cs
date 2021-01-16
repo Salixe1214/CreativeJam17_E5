@@ -22,11 +22,12 @@ public class MeleeAttack : MonoBehaviour
         if (Time.time >= deathTime)
         {
             // Destroy itself
-            Destroy(this);
+            Debug.Log("shinu");
+            Destroy(gameObject);
         }
     }
 
-    public void OnCollisionEnter2D(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         // Is it damageable?
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
