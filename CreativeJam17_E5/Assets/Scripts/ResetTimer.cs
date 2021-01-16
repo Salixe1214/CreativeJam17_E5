@@ -12,7 +12,7 @@ public class ResetTimer : MonoBehaviour
 
     public GameObject texte;
 
-    public UnityEvent LaPresqueMortDuJoueur;
+    public UnityEvent LaMortDuJoueur;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class ResetTimer : MonoBehaviour
         tempsDeLaSession = Time.time - tempsTotalDeJeu;
         if (tempsDeLaSession > resetTimer)
         {
-            LaPresqueMortDuJoueur.Invoke();
+            LaMortDuJoueur.Invoke();
             tempsTotalDeJeu += tempsDeLaSession;
             tempsDeLaSession = 0;
         }

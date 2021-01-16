@@ -10,8 +10,6 @@ public class JoueurMouvement : MonoBehaviour
     Vector2 velocity;
 
     new Rigidbody2D rigidbody;
-    Camera cam;
-    Quaternion camRot;
 
     bool peutBouger = true;
 
@@ -19,6 +17,7 @@ public class JoueurMouvement : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
