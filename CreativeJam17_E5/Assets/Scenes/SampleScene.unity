@@ -2630,6 +2630,7 @@ GameObject:
   - component: {fileID: 1934191518}
   - component: {fileID: 1934191520}
   - component: {fileID: 1934191519}
+  - component: {fileID: 1934191521}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2750,7 +2751,7 @@ MonoBehaviour:
   resetTimer: 1200
   tempsTotalDeJeu: 0
   texte: {fileID: 1042237560}
-  LaPresqueMortDuJoueur:
+  LaMortDuJoueur:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &1934191519
@@ -2788,6 +2789,20 @@ MonoBehaviour:
   - {fileID: 1968117738}
   - {fileID: 1944075660}
   xp: {fileID: 330552831}
+--- !u!114 &1934191521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934191513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b43105b4f6fcc9408276936b85cd613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  handsWeaponRef: {fileID: 3227194196513632196, guid: b156803d76ed13e41a153cc4e52f4eb0,
+    type: 3}
 --- !u!1 &1944075658
 GameObject:
   m_ObjectHideFlags: 0
