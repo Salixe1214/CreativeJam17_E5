@@ -11,33 +11,62 @@ public class DeathShop : MonoBehaviour
     public System.Action BuyResist;
     public System.Action ConfirmBuy;
 
+    public GameObject player;
+    statisticsGestion stats;
+    DamageableEntity playerDmgEntity;
+
     public Text xpText, dmgTxt, timerTxt, speedTxt, resistTxt;
 
     // Start is called before the first frame update
     void Start()
     {
-        statisticsGestion.onXpChange += updateXp;
-        statisticsGestion.onDmgUp += updateDmg;
-        statisticsGestion.onResistUp += updateResist;
-        statisticsGestion.onTimerUp += updateTimer;
-        statisticsGestion.onSpeedUp += updateSpeed;
+        if (player != null)
+        {
+            stats = player.GetComponent<statisticsGestion>();
+            playerDmgEntity = player.GetComponent<DamageableEntity>();
+        }
+        else
+            Debug.Log("Tu dois passer un player au shop pour qu'il fonctionne! >:(");
+
+        if (stats != null)
+        {
+            stats.onXpChange += updateXp;
+            stats.onDmgUp += updateDmg;
+            stats.onResistUp += updateResist;
+            stats.onTimerUp += updateTimer;
+            stats.onSpeedUp += updateSpeed;
+        }
+        else
+            Debug.Log("Le player n'as pas de statisticGestion.");
+
+        if (playerDmgEntity != null)
+        {
+            playerDmgEntity.OnDeath += onPlayerDeath;
+        }
+        else
+            Debug.Log("Ton player n'as pas de DamageableEntity!");
+
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnDestroy()
     {
-        statisticsGestion.onXpChange -= updateXp;
-        statisticsGestion.onDmgUp -= updateDmg;
-        statisticsGestion.onResistUp -= updateResist;
-        statisticsGestion.onTimerUp -= updateTimer;
-        statisticsGestion.onSpeedUp -= updateSpeed;
+        stats.onXpChange -= updateXp;
+        stats.onDmgUp -= updateDmg;
+        stats.onResistUp -= updateResist;
+        stats.onTimerUp -= updateTimer;
+        stats.onSpeedUp -= updateSpeed;
+
+        playerDmgEntity.OnDeath -= onPlayerDeath;
     }
 
+    // Evenements
     public void onBuyDmgClic()
     {
         if(BuyDmg != null)
@@ -66,6 +95,12 @@ public class DeathShop : MonoBehaviour
     {
         if (ConfirmBuy != null)
             ConfirmBuy.Invoke();
+        gameObject.SetActive(false);
+    }
+
+    void onPlayerDeath()
+    {
+        gameObject.SetActive(true);
     }
 
     // Methodes pour updater l'information

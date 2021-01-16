@@ -60,19 +60,26 @@ public class DamageableEntity : MonoBehaviour
     public void Revive()
     {
         // Prepare character for revive
+        Debug.Log("onRevive");
         isAlive = true;
         currentHealth = maxHealth;
 
         // Broadcast the revive event
-        if(OnRevive != null) OnRevive.Invoke();
+        if (OnRevive != null)
+        {
+            OnRevive.Invoke();
+            Debug.Log("Revive");
+        }
     }
 
     private void Die()
     {
         // Prepare character for death
         isAlive = false;
-
         // Broadcast the death event
-        if(OnDeath != null) OnDeath.Invoke();
+        if(OnDeath != null)
+        {
+            OnDeath.Invoke();
+        }
     }
 }
