@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DeactivateOnDeath : MonoBehaviour
 {
-    private DamageableEntity damageable;
-    private GameObject toDisable;
+    [SerializeField] private DamageableEntity damageable;
+    [SerializeField] private GameObject toDisable;
 
     private void Awake()
     {
-        toDisable = gameObject;
-        damageable = GetComponentInChildren<DamageableEntity>();
+        if (!toDisable) toDisable = gameObject;
+        if (!damageable) damageable = GetComponentInChildren<DamageableEntity>();
 
         damageable.OnDeath += Die;
     }

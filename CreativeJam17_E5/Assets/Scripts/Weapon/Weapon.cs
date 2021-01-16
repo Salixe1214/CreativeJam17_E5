@@ -43,7 +43,6 @@ public class Weapon : MonoBehaviour
     // After an attack is done, call this. Universal to all weapons.
     protected void ResolveAttack()
     {
-        Debug.Log("Resolve");
         // Attack action here
         lastAttack = Time.time;
 
@@ -53,7 +52,6 @@ public class Weapon : MonoBehaviour
     protected void UpdateDurability()
     {
         // Durability use is handled by children classes
-        Debug.Log("Dura: " + currentDurability);
         if (currentDurability <= 0 && weaponData.Breakable)
         {
             BreakWeapon();
