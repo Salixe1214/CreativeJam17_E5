@@ -13,7 +13,7 @@ public class DeathShop : MonoBehaviour
 
     public GameObject player;
     statisticsGestion stats;
-    DamageableEntity playerDmgEntity;
+    MortDuJoueur deathBeheaviour;
 
     public Text xpText, dmgTxt, timerTxt, speedTxt, resistTxt;
 
@@ -23,7 +23,7 @@ public class DeathShop : MonoBehaviour
         if (player != null)
         {
             stats = player.GetComponent<statisticsGestion>();
-            playerDmgEntity = player.GetComponent<DamageableEntity>();
+            deathBeheaviour = player.GetComponent<MortDuJoueur>();
         }
         else
             Debug.Log("Tu dois passer un player au shop pour qu'il fonctionne! >:(");
@@ -39,9 +39,9 @@ public class DeathShop : MonoBehaviour
         else
             Debug.Log("Le player n'as pas de statisticGestion.");
 
-        if (playerDmgEntity != null)
+        if (deathBeheaviour != null)
         {
-            playerDmgEntity.OnDeath += onPlayerDeath;
+            deathBeheaviour.openShop += onOpenShop;
         }
         else
             Debug.Log("Ton player n'as pas de DamageableEntity!");
@@ -63,7 +63,7 @@ public class DeathShop : MonoBehaviour
         stats.onTimerUp -= updateTimer;
         stats.onSpeedUp -= updateSpeed;
 
-        playerDmgEntity.OnDeath -= onPlayerDeath;
+        deathBeheaviour.openShop -= onOpenShop;
     }
 
     // Evenements
@@ -98,7 +98,7 @@ public class DeathShop : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void onPlayerDeath()
+    void onOpenShop()
     {
         gameObject.SetActive(true);
     }

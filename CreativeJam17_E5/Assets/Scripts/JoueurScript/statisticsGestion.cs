@@ -67,6 +67,8 @@ public class statisticsGestion : MonoBehaviour
             onTimerUp.Invoke(niv_timer);
         if (onResistUp != null)
             onResistUp.Invoke(niv_resistence);
+
+        dropLootOnDeath.givePlayerXp += onAddExp;
     }
 
     private void OnDestroy()

@@ -37,13 +37,14 @@ public class ProjectileBehavior : MonoBehaviour
     // We collided with something!
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        DamageableEntity damageable = null;
         // Is it damageable?
-        DamageableEntity damageable = collision.transform.parent.GetComponentInChildren<DamageableEntity>();
+        damageable = collision.GetComponent<DamageableEntity>();
+
         if (damageable)
         {
             // Deal your damage
             // Possibility of a persistent projectile / hit-point system?
-            Debug.Log("Deal Damage to: " + collision.transform.parent.name);
             damageable.TakeDamage(Damage);
 
             // Destroy itself
