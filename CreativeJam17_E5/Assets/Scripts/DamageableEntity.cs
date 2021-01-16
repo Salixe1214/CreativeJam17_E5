@@ -15,6 +15,7 @@ public class DamageableEntity : MonoBehaviour
        
     private void Awake()
     {
+        isAlive = true;
         currentHealth = maxHealth;
     }
 
@@ -29,9 +30,15 @@ public class DamageableEntity : MonoBehaviour
             // If life drops to or under 0, die
             if (currentHealth <= 0)
             {
+                Debug.Log("Shinu");
                 Die();
             }
         }
+    }
+
+    public bool IsAlive()
+    {
+        return isAlive;
     }
 
     public float GetMaxHealth()
@@ -57,7 +64,7 @@ public class DamageableEntity : MonoBehaviour
         currentHealth = maxHealth;
 
         // Broadcast the revive event
-        OnRevive.Invoke();
+        if(OnRevive != null) OnRevive.Invoke();
     }
 
     private void Die()
@@ -66,6 +73,6 @@ public class DamageableEntity : MonoBehaviour
         isAlive = false;
 
         // Broadcast the death event
-        OnDeath.Invoke();
+        if(OnDeath != null) OnDeath.Invoke();
     }
 }

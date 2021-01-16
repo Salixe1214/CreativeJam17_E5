@@ -60,7 +60,6 @@ public class WeaponSystem : MonoBehaviour
         }
         else
         {
-            Debug.Log("attack attempted!");
             // Attack with your hands!
             handsWeapon.AttemptAttack();
         }
