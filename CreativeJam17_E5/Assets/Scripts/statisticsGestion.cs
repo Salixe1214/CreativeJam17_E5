@@ -38,8 +38,8 @@ public class statisticsGestion : MonoBehaviour
         
     }
 
-    // 
-    void levelUp(stats stat)
+    // Fonction de levelUp de base
+    bool levelUp(stats stat)
     {
         int niv;
 
@@ -90,6 +90,13 @@ public class statisticsGestion : MonoBehaviour
                 default:
                     break;
             }
+
+            return true;
+        }
+        else
+        {
+            Debug.Log("Pas assez d'exp");
+            return false;
         }
     }
 
@@ -164,4 +171,6 @@ public class statisticsGestion : MonoBehaviour
     {
         return exp;
     }
+
+
 }
