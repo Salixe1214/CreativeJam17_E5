@@ -163,7 +163,7 @@ public class statisticsGestion : MonoBehaviour
         }
     }
 
-    int getLevUpExp(int lvl)
+    public int getLevUpExp(int lvl)
     {
         lvl = lvl + 1; // Car on veut l'exp pour un niveau plus haut
 
