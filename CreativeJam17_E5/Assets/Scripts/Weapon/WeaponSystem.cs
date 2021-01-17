@@ -81,7 +81,7 @@ public class WeaponSystem : MonoBehaviour
     private void BreakWeapon()
     {
         Destroy(currentWeaponObj);
-        Instantiate(WeaponBreakAnim, new Vector3(transform.position.x, transform.position.y, 0.9f), Quaternion.identity);
+        Instantiate(WeaponBreakAnim, new Vector3(transform.position.x, transform.position.y, -2.0f), Quaternion.identity);
 
         currentWeapon = null;
         currentWeaponObj = null;
