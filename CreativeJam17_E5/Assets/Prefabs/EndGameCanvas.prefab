@@ -526,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbDeathUI: {fileID: 6833524315753736522}
+  timeText: {fileID: 6833524315957518272}
 --- !u!1 &6833524315428170096
 GameObject:
   m_ObjectHideFlags: 0
