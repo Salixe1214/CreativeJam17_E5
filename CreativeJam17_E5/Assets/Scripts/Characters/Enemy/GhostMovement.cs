@@ -10,6 +10,7 @@ public class GhostMovement : MonoBehaviour
 
     private PlayerDetector playerDetector;
     private Rigidbody2D movementBody;
+    private DamageableEntity damageable;
 
     private Vector2 respawnPoint;
 
@@ -20,8 +21,10 @@ public class GhostMovement : MonoBehaviour
     {
         respawnPoint = transform.position;
         movementBody = GetComponent<Rigidbody2D>();
+        damageable = GetComponentInChildren<DamageableEntity>();
         playerDetector = GetComponentInChildren<PlayerDetector>();
 
+        damageable.OnRevive += Respawn;
         playerDetector.OnPlayerEnter += OnPlayerDetected;
     }
 
