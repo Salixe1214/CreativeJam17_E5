@@ -1583,6 +1583,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 727732799}
     m_Modifications:
+    - target: {fileID: 6361065306051100446, guid: 71fbefa98a38e83409f02295c7b523f3,
+        type: 3}
+      propertyPath: Damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6361065307339300350, guid: 71fbefa98a38e83409f02295c7b523f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -3247,25 +3252,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &940109690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7419661508251839357, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
-    type: 3}
-  m_PrefabInstance: {fileID: 241403674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &940109691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940109690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6acf778a7006eab448c095a22670e682, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
 --- !u!1001 &952952901
 PrefabInstance:
   m_ObjectHideFlags: 0
