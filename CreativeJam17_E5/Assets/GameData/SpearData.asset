@@ -16,5 +16,5 @@ MonoBehaviour:
   UiImage: {fileID: 21300000, guid: 32291371a3b977e4795c28cbacd43078, type: 3}
   Durability: 5
   Breakable: 1
-  AttackDamage: 4
+  AttackDamage: 2
   CooldownSeconds: 0.5
