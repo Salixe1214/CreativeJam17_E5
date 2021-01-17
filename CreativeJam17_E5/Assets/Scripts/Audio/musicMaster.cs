@@ -47,9 +47,9 @@ public class musicMaster : MonoBehaviour
         ProjectileBehavior.onHit += arrowHit;
 
         /// Abonnements pour sfx ///
-        statisticsGestion.gainExp += pickUp;
+        statisticsGestion.gainExp += pickUpXp;
 
-        Ramassable.onPickUp += pickUp;
+        Ramassable.onPickUp += pickUpWeapon;
 
     }
 
@@ -161,9 +161,17 @@ public class musicMaster : MonoBehaviour
         playSFXSound(rangeEquipSound);
     }
 
-    void pickUp()
+    void pickUpXp()
     {
         playSFXSound(pickUpSound);
+    }
+
+    void pickUpWeapon(string weapon)
+    {
+        if (weapon == "sword" || weapon == "spear")
+            meleeEquip();
+        if (weapon == "bow" || weapon == "slingShot")
+            rangeEquip();
     }
 
     /// Music ///
@@ -182,6 +190,6 @@ public class musicMaster : MonoBehaviour
 
     void playSFXSound(AudioClip[] clip)
     {
-        sourceFX.PlayOneShot(clip[(int)Random.Range(0, meleeAtkSound.Length)]);
+        sourceFX.PlayOneShot(clip[(int)Random.Range(0, clip.Length)]);
     }
 }

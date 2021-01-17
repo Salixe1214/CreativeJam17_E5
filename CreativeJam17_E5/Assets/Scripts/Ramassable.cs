@@ -16,7 +16,7 @@ public class Ramassable : MonoBehaviour
     bool estSurUnLancePierre = false;
     bool estSurUneLance = false;
 
-    static public System.Action onPickUp;
+    static public System.Action<string> onPickUp;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class Ramassable : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
-                    onPickUp.Invoke();
+                    onPickUp.Invoke("sword");
 
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
@@ -51,7 +51,7 @@ public class Ramassable : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
-                    onPickUp.Invoke();
+                    onPickUp.Invoke("spear");
 
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
@@ -66,7 +66,7 @@ public class Ramassable : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
-                    onPickUp.Invoke();
+                    onPickUp.Invoke("slingShot");
 
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
@@ -81,7 +81,7 @@ public class Ramassable : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
-                    onPickUp.Invoke();
+                    onPickUp.Invoke("bow");
 
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
