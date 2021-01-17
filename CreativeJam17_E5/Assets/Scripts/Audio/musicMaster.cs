@@ -5,7 +5,7 @@ using UnityEngine;
 public class musicMaster : MonoBehaviour
 {
     [SerializeField] private AudioSource sourceFX, sourceUI;
-    public AudioSource[] musics;
+    [SerializeField] AudioSource music;
 
     // UI
     public AudioClip[] hitSoulSound;
@@ -40,14 +40,14 @@ public class musicMaster : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(sourceFX == null || sourceUI == null || musics == null)
+        if(sourceFX == null || sourceUI == null || music == null)
         {
             Debug.Log("Pas de source audio");
         }
 
-        musics[0].clip = musicsLevels[0];
-        musics[0].loop = true;
-        musics[0].Play();
+        music.clip = musicsLevels[0];
+        music.loop = true;
+        music.Play();
     }
 
     private void OnEnable()
@@ -243,38 +243,21 @@ public class musicMaster : MonoBehaviour
     void changeLevel(int newLvl)
     {
         lvl = newLvl;
-        lvl = Mathf.Clamp(lvl, 0, musics.Length - 1);
-        Debug.Log("Lvl = " + lvl);
-        foreach(AudioSource music in musics)
-        {
-            music.Stop();
-        }
-
-        for(int i = 0; i <= lvl; i++)
-        {
-            musics[i].Play();
-        }
+        music.clip = musicsLevels[lvl];
+        music.Play();
     }
 
     void restartLevels()
     {
         lvl = 0;
-        foreach(AudioSource music in musics)
-        {
-            music.Stop();
-        }
-        musics[0].clip = musicsLevels[0];
-        musics[0].Play();
+        music.clip = musicsLevels[0];
+        music.Play();
     }
 
     void shopOpen()
     {
-        foreach (AudioSource music in musics)
-        {
-            music.Stop();
-        }
-        musics[0].clip = shopMusic;
-        musics[0].Play();
+        music.clip = shopMusic;
+        music.Play();
     }
 
     /// PlaySound ///
