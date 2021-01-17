@@ -28,6 +28,7 @@ public class PlayerHudToggler : MonoBehaviour
 
     private void ActivateHud(bool shouldActive)
     {
-        gameObject.SetActive(shouldActive);
+        transform.gameObject.SetActive(shouldActive);
+        //gameObject.SetActive(shouldActive);
     }
 }
