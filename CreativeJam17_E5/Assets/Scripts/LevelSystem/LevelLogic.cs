@@ -16,6 +16,7 @@ public class LevelLogic : MonoBehaviour
     [SerializeField] private PlayerDetector nextLevelDetector;
 
     public Action<int> OnLevelClear;
+    static public Action onUnlockDoor;
 
     private int defeatedEnemyCount;
 
@@ -41,6 +42,10 @@ public class LevelLogic : MonoBehaviour
         defeatedEnemyCount++;
         if (defeatedEnemyCount == enemies.Count)
         {
+            if(onUnlockDoor != null)
+            {
+                onUnlockDoor.Invoke();
+            }
             lockedDoor.SetActive(false);
         }
     }
