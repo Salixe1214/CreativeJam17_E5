@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/salixeTests.unity
     guid: 9b1756273455f6840bb31e832244f83b
+  - enabled: 1
+    path: Assets/Scenes/Niveau9_treachery.unity
+    guid: 2ddc643a0e4f6554dac9700704a95678
   m_configObjects: {}
