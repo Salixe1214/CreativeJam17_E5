@@ -49,7 +49,7 @@ public class statisticsGestion : MonoBehaviour
             deatShop.BuyTimer += onLevelUpTimer;
         }
         else
-            Debug.Log("T'as pas mis le deathShop dans ton player/n C'est pour ça ça marche pas :(");
+            Debug.Log("T'as pas mis le deathShop dans ton player\n C'est pour ça ça marche pas :(");
 
         if (onXpChange != null)
             onXpChange.Invoke(exp);
