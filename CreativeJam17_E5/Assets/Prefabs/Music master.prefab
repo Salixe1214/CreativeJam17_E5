@@ -112,10 +112,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 76e1a8fd3b0b5264a9fe61e67ca98acd, type: 3}
   UITimeLowSound:
   - {fileID: 8300000, guid: 3b3af8081b617fc4a9166836927dc2ae, type: 3}
+  unlockDoorSound:
+  - {fileID: 8300000, guid: a0e65c2c9f875604498036584d7d5e6e, type: 3}
   musicsLevels:
   - {fileID: 8300000, guid: 35ee5b129b55673429586cf9676b7895, type: 3}
   - {fileID: 8300000, guid: 7367cbfe69174524db5a88d15782480d, type: 3}
   - {fileID: 8300000, guid: 8ec86bc6caa005b42a8f1a162a053fec, type: 3}
+  shopMusic: {fileID: 0}
   deathShop: {fileID: 0}
 --- !u!82 &1729461650612912289
 AudioSource:

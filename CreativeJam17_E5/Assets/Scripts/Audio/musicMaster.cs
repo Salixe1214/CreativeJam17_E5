@@ -26,6 +26,7 @@ public class musicMaster : MonoBehaviour
     public AudioClip[] UIQuitSound;
     public AudioClip[] UISelectSound;
     public AudioClip[] UITimeLowSound;
+    public AudioClip[] unlockDoorSound;
 
     // Music
     public AudioClip[] musicsLevels;
@@ -65,6 +66,8 @@ public class musicMaster : MonoBehaviour
         statisticsGestion.gainExp += pickUpXp;
 
         Ramassable.onPickUp += pickUpWeapon;
+
+        LevelLogic.onUnlockDoor += unlockDoor;
 
         // Abonnements pour music
         LevelManager.nextLevel += changeLevel;
@@ -167,6 +170,12 @@ public class musicMaster : MonoBehaviour
     }
 
     /// SFX ///
+    /// 
+
+    void unlockDoor()
+    {
+        playSFXSound(unlockDoorSound);
+    }
 
     void hitSoul(GameObject obj)
     {
