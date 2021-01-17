@@ -11,6 +11,7 @@ TagManager:
   - epee
   - bonusTemps
   - lancePierre
+  - ghost
   layers:
   - Default
   - TransparentFX

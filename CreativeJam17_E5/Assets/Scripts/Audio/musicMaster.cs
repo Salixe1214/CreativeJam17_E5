@@ -202,7 +202,7 @@ public class musicMaster : MonoBehaviour
     void changeLevel()
     {
         lvl++;
-        music.clip = musicsLevels[Mathf.Clamp(lvl, 0, musicsLevels.Length)];
+        music.clip = musicsLevels[Mathf.Clamp(lvl, 0, musicsLevels.Length-1)];
         Debug.Log(music.loop);
         music.Play();
     }
