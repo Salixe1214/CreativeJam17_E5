@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HandsData
   m_EditorClassIdentifier: 
   Name: Fists
-  UiImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  UiImage: {fileID: 21300000, guid: c24775480c6fe7744b3e5f042d38d48c, type: 3}
   Durability: 0
   Breakable: 0
   AttackDamage: 25

@@ -17,6 +17,7 @@ public class Weapon : MonoBehaviour
     protected float lastAttack;
 
     public Action OnWeaponBroken;
+    public Action OnDurabilityUpdated;
 
     protected void Awake()
     {
@@ -51,6 +52,8 @@ public class Weapon : MonoBehaviour
 
     protected void UpdateDurability()
     {
+        if (OnDurabilityUpdated != null) OnDurabilityUpdated();
+
         // Durability use is handled by children classes
         if (currentDurability <= 0 && weaponData.Breakable)
         {
@@ -62,5 +65,10 @@ public class Weapon : MonoBehaviour
     public void BreakWeapon()
     {
         if(OnWeaponBroken != null) OnWeaponBroken.Invoke();
+    }
+
+    public int GetDurability()
+    {
+        return currentDurability;
     }
 }
