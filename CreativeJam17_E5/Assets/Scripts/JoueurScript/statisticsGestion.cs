@@ -12,7 +12,7 @@ public class statisticsGestion : MonoBehaviour
         Resistence
     }
 
-    int exp = 1000;
+    int exp = 0;
     
     // Le deathShop auquel on abonne le levelUping
     public DeathShop deatShop;

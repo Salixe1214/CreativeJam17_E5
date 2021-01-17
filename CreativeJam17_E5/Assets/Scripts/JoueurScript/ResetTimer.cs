@@ -10,9 +10,6 @@ public class ResetTimer : MonoBehaviour
 
     public float tempsAjouteEphemere = 0;
     public float tempsDeLaSession;
-
-    public GameObject texte;
-
     public DeathShop deathShop;
 
     public float tempsMaximal;
@@ -45,29 +42,7 @@ public class ResetTimer : MonoBehaviour
             float dommage = transform.GetComponentInChildren<DamageableEntity>().GetMaxHealth();
             transform.GetComponentInChildren<DamageableEntity>().TakeDamage(dommage);
         }
-
         // L'update du temps sur le UI
-        afficherTempsRestant();
-    }
-
-
-
-    void afficherTempsRestant()
-    {
-        int secondes = Mathf.FloorToInt((resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
-                                                                    +   tempsAjouteEphemere - tempsDeLaSession) % 60);
-        int minutes = Mathf.FloorToInt((resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
-                                                                    + tempsAjouteEphemere - tempsDeLaSession) / 60);
-        string tempsEnString;
-        if (GetComponent<JoueurMouvement>().peutBouger)
-        {
-            tempsEnString = minutes.ToString() + ":" + secondes.ToString();
-        }
-        else 
-        { 
-            tempsEnString = "t'es mort\n maudit \npo bon";
-        }
-        texte.GetComponent<UnityEngine.UI.Text>().text = tempsEnString;
     }
 
     void resetTempsApresShop()
