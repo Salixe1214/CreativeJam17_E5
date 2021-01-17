@@ -16,5 +16,6 @@ public class CameraMouvement : MonoBehaviour
     {
         Vector2 position = player.transform.position;
         transform.position = position;
+        transform.position += new Vector3(0,0,-10f);
     }
 }
