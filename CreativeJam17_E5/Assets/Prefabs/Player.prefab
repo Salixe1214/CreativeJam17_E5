@@ -246,6 +246,8 @@ MonoBehaviour:
   BowRef: {fileID: 1038051341890307797, guid: b69d3d704cd522c4a92fa10cecdd3c71, type: 3}
   SlingshotRef: {fileID: 8900772276092350609, guid: acb71458c4cd3ba49a2f94ef846aa795,
     type: 3}
+  WeaponBreakAnim: {fileID: 8043527978264819648, guid: 0313a8e10a5ab624081fedf27ab5e7b0,
+    type: 3}
   TestWeaponRef: {fileID: 0}
   handsWeaponRef: {fileID: 3227194196513632196, guid: b156803d76ed13e41a153cc4e52f4eb0,
     type: 3}
