@@ -166,7 +166,10 @@ public class statisticsGestion : MonoBehaviour
     public int getLevUpExp(int lvl)
     {
         lvl = lvl + 1; // Car on veut l'exp pour un niveau plus haut
-
+        if(lvl > 5)
+        {
+            return 10000000;
+        }
         return (int) Mathf.Ceil((0.04f * (Mathf.Pow(lvl, 3))) + (0.8f * (Mathf.Pow(lvl, 2))) + (2 * lvl));
     }
 
