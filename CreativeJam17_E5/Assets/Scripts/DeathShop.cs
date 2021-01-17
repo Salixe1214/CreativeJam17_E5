@@ -160,12 +160,11 @@ public class DeathShop : MonoBehaviour
         resistTxt.text = lvl.ToString();
         if (lvl >= 5)
         {
-            resistTxt.text = "---";
+            resistExpNext.text = "---";
         }
         else
         {
             resistExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
         }
-
     }
 }
