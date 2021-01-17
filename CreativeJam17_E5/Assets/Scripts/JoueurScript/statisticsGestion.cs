@@ -37,6 +37,7 @@ public class statisticsGestion : MonoBehaviour
     public System.Action<int> onResistUp;
 
     static public System.Action lvlUp;
+    static public System.Action gainExp;
 
     // Start is called before the first frame update
     void Start()
@@ -293,6 +294,8 @@ public class statisticsGestion : MonoBehaviour
     public void onAddExp(int xp)
     {
         exp += xp;
+        if (gainExp != null)
+            gainExp.Invoke();
         if (onXpChange != null)
             onXpChange.Invoke(exp);
     }

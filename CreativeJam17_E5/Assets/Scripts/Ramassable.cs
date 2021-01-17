@@ -16,6 +16,8 @@ public class Ramassable : MonoBehaviour
     bool estSurUnLancePierre = false;
     bool estSurUneLance = false;
 
+    static public System.Action onPickUp;
+
     private void Start()
     {
         joueur = GameObject.FindGameObjectWithTag("MainCharacter");
@@ -33,7 +35,10 @@ public class Ramassable : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
-                if(joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
+                if (onPickUp != null)
+                    onPickUp.Invoke();
+
+                if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
                 }
@@ -45,6 +50,9 @@ public class Ramassable : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
+                if (onPickUp != null)
+                    onPickUp.Invoke();
+
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
@@ -57,6 +65,9 @@ public class Ramassable : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
+                if (onPickUp != null)
+                    onPickUp.Invoke();
+
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
@@ -69,6 +80,9 @@ public class Ramassable : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(1))
             {
+                if (onPickUp != null)
+                    onPickUp.Invoke();
+
                 if (joueur.GetComponent<WeaponSystem>().GetCurrentWeapon() != null)
                 {
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
