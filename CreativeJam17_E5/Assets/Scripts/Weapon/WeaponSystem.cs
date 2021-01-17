@@ -25,6 +25,7 @@ public class WeaponSystem : MonoBehaviour
     [SerializeField] private GameObject WeaponBreakAnim;
 
     public Action OnWeaponEquipped;
+    public Action OnDurabilityUpdated;
 
     public Animator animator;
 
@@ -68,6 +69,7 @@ public class WeaponSystem : MonoBehaviour
             currentWeaponObj = newWeapon;
             currentWeapon = currentWeaponObj.GetComponent<Weapon>();
             currentWeapon.OnWeaponBroken += BreakWeapon;
+            currentWeapon.OnDurabilityUpdated += UpdateDurability;
 
             if (OnWeaponEquipped != null) OnWeaponEquipped.Invoke();
         }
@@ -80,6 +82,13 @@ public class WeaponSystem : MonoBehaviour
 
         currentWeapon = null;
         currentWeaponObj = null;
+
+        if (OnWeaponEquipped != null) OnWeaponEquipped.Invoke();
+    }
+
+    private void UpdateDurability()
+    {
+        if (OnDurabilityUpdated != null) OnDurabilityUpdated.Invoke();
     }
 
     public void Attack()
