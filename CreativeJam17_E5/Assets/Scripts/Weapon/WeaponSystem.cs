@@ -23,6 +23,8 @@ public class WeaponSystem : MonoBehaviour
 
     public Action OnWeaponEquipped;
 
+    public Animator animator;
+
     private void Awake()
     {
         // Instantiate hands object
@@ -77,11 +79,13 @@ public class WeaponSystem : MonoBehaviour
         if (currentWeapon)
         {
             currentWeapon.AttemptAttack();
+            animator.SetBool("ZoeAttack", true);
         }
         else
         {
             // Attack with your hands!
             handsWeapon.AttemptAttack();
+            animator.SetBool("ZoeAttack", true);
         }
     }
 
