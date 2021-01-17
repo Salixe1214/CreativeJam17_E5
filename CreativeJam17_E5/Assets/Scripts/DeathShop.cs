@@ -42,7 +42,7 @@ public class DeathShop : MonoBehaviour
 
         if (deathBeheaviour != null)
         {
-            deathBeheaviour.openShop += onOpenShop;
+            MortDuJoueur.openShop += onOpenShop;
         }
         else
             Debug.Log("Ton player n'as pas de DamageableEntity!");
@@ -64,7 +64,7 @@ public class DeathShop : MonoBehaviour
         stats.onTimerUp -= updateTimer;
         stats.onSpeedUp -= updateSpeed;
 
-        deathBeheaviour.openShop -= onOpenShop;
+        MortDuJoueur.openShop -= onOpenShop;
     }
 
     // Evenements

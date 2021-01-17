@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
 
     private int currentLevelId;
 
-    static public Action nextLevel;
+    static public Action<int> nextLevel;
     static public Action restart;
 
     private void Awake()
@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
         }
 
         player.GetComponentInChildren<DamageableEntity>().OnRevive += PlayerRevived;
-        player.GetComponent<MortDuJoueur>().openShop += VoidLevels;
+        MortDuJoueur.openShop += VoidLevels;
 
         // Leave the first level active tho
         levels[0].SetLevelActive(true);
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
             levels[i].OnLevelClear += LevelCleared;
         }
         player.GetComponentInChildren<DamageableEntity>().OnRevive += PlayerRevived;
-        player.GetComponent<MortDuJoueur>().openShop += VoidLevels;
+        MortDuJoueur.openShop += VoidLevels;
     }
 
     private void OnDisable()
@@ -47,8 +47,11 @@ public class LevelManager : MonoBehaviour
             levels[i].OnLevelClear -= LevelCleared;
         }
 
-        player.GetComponentInChildren<DamageableEntity>().OnRevive -= PlayerRevived;
-        player.GetComponent<MortDuJoueur>().openShop -= VoidLevels;
+        if(player != null)
+        {
+            player.GetComponentInChildren<DamageableEntity>().OnRevive -= PlayerRevived;
+            MortDuJoueur.openShop -= VoidLevels;
+        }
     }
 
     private void PlayerRevived()
@@ -86,8 +89,8 @@ public class LevelManager : MonoBehaviour
         if (levelId < levels.Count - 1)
         {
             if (nextLevel != null)
-                nextLevel.Invoke();
-
+                nextLevel.Invoke(levelId + 1);
+            Debug.Log("Level ID: " + levelId);
             // Activate next level
             levels[levelId].SetLevelActive(false);
             levels[levelId + 1].SetLevelActive(true);

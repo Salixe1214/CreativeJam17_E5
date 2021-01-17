@@ -11,7 +11,7 @@ public class MortDuJoueur : MonoBehaviour
     Vector3 positionInitiale;
     public DeathShop deathShop;
 
-    public System.Action openShop;
+    static public System.Action openShop;
 
     // Start is called before the first frame update
     void Start()

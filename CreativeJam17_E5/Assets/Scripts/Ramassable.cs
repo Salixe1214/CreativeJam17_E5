@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ramassable : MonoBehaviour
 {
-
+    [SerializeField] private SpriteRenderer clickSprite;
     enum ramassables {bonusTemps, lance, epee, lancePierre};
 
     public float bonusTemps = 15;
@@ -21,6 +21,7 @@ public class Ramassable : MonoBehaviour
     private void Start()
     {
         joueur = GameObject.FindGameObjectWithTag("MainCharacter");
+        clickSprite.enabled = false;
     }
     void Awake()
     {
@@ -31,8 +32,9 @@ public class Ramassable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(estSurUneEpee)
+        if (estSurUneEpee)
         {
+            clickSprite.enabled = true;
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
@@ -46,8 +48,9 @@ public class Ramassable : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        else if(estSurUneLance)
+        else if (estSurUneLance)
         {
+            clickSprite.enabled = true;
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
@@ -63,6 +66,7 @@ public class Ramassable : MonoBehaviour
         }
         else if (estSurUnLancePierre)
         {
+            clickSprite.enabled = true;
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
@@ -78,6 +82,7 @@ public class Ramassable : MonoBehaviour
         }
         else if (estSurUnArc)
         {
+            clickSprite.enabled = true;
             if (Input.GetMouseButtonDown(1))
             {
                 if (onPickUp != null)
@@ -91,8 +96,9 @@ public class Ramassable : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-    }
 
+        if (!estSurUneEpee && !estSurUnArc && !estSurUneLance && !estSurUnLancePierre) clickSprite.enabled = false;
+    }    
     void estSurUnObjet(GameObject player)
     {
         if (transform.tag == "epee")

@@ -36,7 +36,7 @@ public class dropLootOnDeath : MonoBehaviour
     {
         drop = chooseDrop();
         if(drop!=null)
-            Instantiate(drop, transform.position, transform.rotation);
+            Instantiate(drop, new Vector3(transform.position.x,transform.position.y, 0.2f), transform.rotation);
         if(givePlayerXp != null)
         {
             givePlayerXp.Invoke((int)Random.Range(1, 10));

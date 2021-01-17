@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class musicMaster : MonoBehaviour
 {
-    public AudioSource sourceFX, sourceUI, music;
+    public AudioSource sourceFX, sourceUI;
+    public AudioSource[] musics;
 
     // UI
     public AudioClip[] hitSoulSound;
@@ -25,9 +26,11 @@ public class musicMaster : MonoBehaviour
     public AudioClip[] UIQuitSound;
     public AudioClip[] UISelectSound;
     public AudioClip[] UITimeLowSound;
+    public AudioClip[] unlockDoorSound;
 
     // Music
     public AudioClip[] musicsLevels;
+    public AudioClip shopMusic;
     int lvl = 0;
 
     public DeathShop deathShop;
@@ -37,13 +40,20 @@ public class musicMaster : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(sourceFX == null || sourceUI == null || music == null)
+        if(sourceFX == null || sourceUI == null || musics == null)
         {
             Debug.Log("Pas de source audio");
         }
 
+        musics[0].clip = musicsLevels[0];
+        musics[0].loop = true;
+        musics[0].Play();
+    }
+
+    private void OnEnable()
+    {
         /// Abonnements pour UI ///
-        
+
         statisticsGestion.lvlUp += levelUp;
 
         button.buttunHover += UIHover;
@@ -57,16 +67,15 @@ public class musicMaster : MonoBehaviour
 
         Ramassable.onPickUp += pickUpWeapon;
 
+        LevelLogic.onUnlockDoor += unlockDoor;
+
         // Abonnements pour music
         LevelManager.nextLevel += changeLevel;
         LevelManager.restart += restartLevels;
-
-        music.clip = musicsLevels[0];
-        music.loop = true;
-        music.Play();
+        MortDuJoueur.openShop += shopOpen;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         /// Abonnements pour UI ///
 
@@ -86,6 +95,7 @@ public class musicMaster : MonoBehaviour
         // Abonnements pour music
         LevelManager.nextLevel -= changeLevel;
         LevelManager.restart -= restartLevels;
+        MortDuJoueur.openShop -= shopOpen;
     }
 
     // Update is called once per frame
@@ -160,6 +170,12 @@ public class musicMaster : MonoBehaviour
     }
 
     /// SFX ///
+    /// 
+
+    void unlockDoor()
+    {
+        playSFXSound(unlockDoorSound);
+    }
 
     void hitSoul(GameObject obj)
     {
@@ -221,19 +237,41 @@ public class musicMaster : MonoBehaviour
     }
 
     /// Music ///
-    void changeLevel()
+    void changeLevel(int newLvl)
     {
-        lvl++;
-        music.clip = musicsLevels[Mathf.Clamp(lvl, 0, musicsLevels.Length-1)];
-        Debug.Log(music.loop);
-        music.Play();
+        lvl = newLvl;
+        lvl = Mathf.Clamp(lvl, 0, musics.Length - 1);
+        Debug.Log("Lvl = " + lvl);
+        foreach(AudioSource music in musics)
+        {
+            music.Stop();
+        }
+
+        for(int i = 0; i <= lvl; i++)
+        {
+            musics[i].Play();
+        }
     }
 
     void restartLevels()
     {
         lvl = 0;
-        music.clip = musicsLevels[0];
-        music.Play();
+        foreach(AudioSource music in musics)
+        {
+            music.Stop();
+        }
+        musics[0].clip = musicsLevels[0];
+        musics[0].Play();
+    }
+
+    void shopOpen()
+    {
+        foreach (AudioSource music in musics)
+        {
+            music.Stop();
+        }
+        musics[0].clip = shopMusic;
+        musics[0].Play();
     }
 
     /// PlaySound ///
