@@ -11316,7 +11316,7 @@ PrefabInstance:
     - target: {fileID: 7419661508833625302, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: resetTimer
-      value: 60
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7419661508833625303, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
@@ -26771,6 +26771,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 479111593466375279, guid: fa43a3ab61fb7484283197ef4070f57d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 241.15002
+      objectReference: {fileID: 0}
+    - target: {fileID: 479111593466375279, guid: fa43a3ab61fb7484283197ef4070f57d,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.150024
+      objectReference: {fileID: 0}
     - target: {fileID: 479111593466375280, guid: fa43a3ab61fb7484283197ef4070f57d,
         type: 3}
       propertyPath: player

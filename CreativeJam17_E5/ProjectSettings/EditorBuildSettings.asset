@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelSystem 1.unity
     guid: 099e62414d794564a87d39308f48d53e
+  - enabled: 1
+    path: Assets/Scenes/Niveau9_treachery.unity
+    guid: 2ddc643a0e4f6554dac9700704a95678
   m_configObjects: {}
