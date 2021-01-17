@@ -9,7 +9,7 @@ public class ResetTimer : MonoBehaviour
     public float tempsTotalDeJeu = 0;
 
     public float tempsAjouteEphemere = 0;
-    float tempsDeLaSession;
+    public float tempsDeLaSession;
 
     public GameObject texte;
 
