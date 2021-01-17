@@ -161,7 +161,6 @@ public class statisticsGestion : MonoBehaviour
         }
         else
         {
-            Debug.Log("Pas assez d'exp");
             return false;
         }
     }

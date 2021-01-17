@@ -12,6 +12,9 @@ public class LevelManager : MonoBehaviour
 
     private int currentLevelId;
 
+    static public Action nextLevel;
+    static public Action restart;
+
     private void Awake()
     {
         for (int i = 0; i < levels.Count; i++)
@@ -48,6 +51,10 @@ public class LevelManager : MonoBehaviour
             levels[i].SetLevelActive(false);
         }
 
+        if (restart != null)
+        {
+            restart.Invoke();
+        }
         // Leave the first level active tho
         levels[0].SetLevelActive(true);
     }
@@ -57,6 +64,9 @@ public class LevelManager : MonoBehaviour
         // If not last level
         if (levelId < levels.Count - 1)
         {
+            if (nextLevel != null)
+                nextLevel.Invoke();
+
             // Activate next level
             levels[levelId].SetLevelActive(false);
             levels[levelId + 1].SetLevelActive(true);

@@ -6,6 +6,7 @@ public class musicMaster : MonoBehaviour
 {
     public AudioSource sourceFX, sourceUI, music;
 
+    // UI
     public AudioClip[] hitSoulSound;
     public AudioClip[] stoneSound;
     public AudioClip[] meleeAtkSound;
@@ -15,6 +16,7 @@ public class musicMaster : MonoBehaviour
     public AudioClip[] rangeEquipSound;
     public AudioClip[] pickUpSound;
 
+    // SFX
     public AudioClip[] SFXLvlUp;
     public AudioClip[] UIHoverSound;
     public AudioClip[] itemBreakSound;
@@ -23,6 +25,10 @@ public class musicMaster : MonoBehaviour
     public AudioClip[] UIQuitSound;
     public AudioClip[] UISelectSound;
     public AudioClip[] UITimeLowSound;
+
+    // Music
+    public AudioClip[] musicsLevels;
+    int lvl = 0;
 
     public DeathShop deathShop;
 
@@ -51,6 +57,13 @@ public class musicMaster : MonoBehaviour
 
         Ramassable.onPickUp += pickUpWeapon;
 
+        // Abonnements pour music
+        LevelManager.nextLevel += changeLevel;
+        LevelManager.restart += restartLevels;
+
+        music.clip = musicsLevels[0];
+        music.loop = true;
+        music.Play();
     }
 
     // Update is called once per frame
@@ -128,6 +141,7 @@ public class musicMaster : MonoBehaviour
 
     void hitSoul(GameObject obj)
     {
+        Debug.Log("Soul hit");
         playSFXSound(hitSoulSound);
     }
 
@@ -148,11 +162,21 @@ public class musicMaster : MonoBehaviour
 
     void meleeHit(GameObject obj)
     {
+        if(obj.tag == "ghost")
+        {
+            playSFXSound(hitSoulSound);
+        }
+
         playSFXSound(meleeHitSound);
     }
 
     void arrowHit(GameObject obj)
     {
+        if (obj.tag == "ghost")
+        {
+            playSFXSound(hitSoulSound);
+        }
+
         playSFXSound(arrowHitSound);
     }
 
@@ -175,7 +199,19 @@ public class musicMaster : MonoBehaviour
     }
 
     /// Music ///
+    void changeLevel()
+    {
+        lvl++;
+        music.clip = musicsLevels[Mathf.Clamp(lvl, 0, musicsLevels.Length)];
+        Debug.Log(music.loop);
+        music.Play();
+    }
 
+    void restartLevels()
+    {
+        music.clip = musicsLevels[0];
+        music.Play();
+    }
 
     /// PlaySound ///
 
