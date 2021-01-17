@@ -52,9 +52,6 @@ public class statisticsGestion : MonoBehaviour
         else
             Debug.Log("T'as pas mis le deathShop dans ton player\n C'est pour ça ça marche pas :(");
 
-        if (onXpChange != null)
-            onXpChange.Invoke(exp);
-
         if (onDmgUp != null)
             onDmgUp.Invoke(niv_damages);
         if (onSpeedUp != null)
@@ -65,6 +62,14 @@ public class statisticsGestion : MonoBehaviour
             onResistUp.Invoke(niv_resistence);
 
         dropLootOnDeath.givePlayerXp += onAddExp;
+    }
+    private void Awake()
+    {
+        if (onXpChange != null)
+        {
+            Debug.Log("XP change");
+            onXpChange.Invoke(exp);
+        }
     }
 
     private void OnDestroy()
