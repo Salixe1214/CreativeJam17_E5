@@ -9,7 +9,7 @@ public class MeleeWeapon : Weapon
     protected override void Attack(float modifier)
     {
         // Spawn attack! It'll do the rest itself.
-        Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2.0f);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y, -2.0f);
         GameObject attackObj = Instantiate(meleeAttack, position, transform.rotation);
 
         // Calculate attack offset and rotation based on player
