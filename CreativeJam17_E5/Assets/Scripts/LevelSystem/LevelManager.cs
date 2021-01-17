@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     static public Action<int> nextLevel;
     static public Action restart;
+    static public Action onEndGame;
 
     private void Awake()
     {
@@ -102,6 +103,11 @@ public class LevelManager : MonoBehaviour
         else
         {
             // End game!
+            if(onEndGame != null)
+            {
+                onEndGame.Invoke();
+            }
+            PlayerPrefs.SetInt("nbDeath", MortDuJoueur.nbDeath);
             SceneManager.LoadScene(gameOverSceneName);
         }
     }
