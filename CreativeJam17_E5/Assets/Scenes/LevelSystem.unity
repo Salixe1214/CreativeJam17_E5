@@ -1008,6 +1008,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7419661508833625299, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419661508833625299, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419661508833625299, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7419661508833625300, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: m_RootOrder
@@ -1110,6 +1125,7 @@ PrefabInstance:
       objectReference: {fileID: 1815678429}
     m_RemovedComponents:
     - {fileID: 7419661508833625320, guid: 095bd58ee308bc245ae2b4e4b0bbb256, type: 3}
+    - {fileID: 7419661508833625322, guid: 095bd58ee308bc245ae2b4e4b0bbb256, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 095bd58ee308bc245ae2b4e4b0bbb256, type: 3}
 --- !u!1001 &267379659
 PrefabInstance:
@@ -3250,6 +3266,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &940109690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7419661508251839357, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+    type: 3}
+  m_PrefabInstance: {fileID: 241403674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &940109691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940109690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acf778a7006eab448c095a22670e682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+--- !u!58 &940109693 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7419661508251839359, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+    type: 3}
+  m_PrefabInstance: {fileID: 241403674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &952952901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4623,6 +4664,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 241403674}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1313523111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313523110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73241e028ceef6489e045da3cf5bff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityTime: 2
+  playerHurtbox: {fileID: 940109693}
 --- !u!1 &1316695975
 GameObject:
   m_ObjectHideFlags: 0

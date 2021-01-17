@@ -12,6 +12,7 @@ public class DamageableEntity : MonoBehaviour
 
     public Action OnDeath;
     public Action OnRevive;
+    public Action OnHit;
 
 private void Awake()
     {
@@ -24,9 +25,10 @@ private void Awake()
         // Don't take damage if dead
         if (isAlive)
         {
-
             // Take damage
             currentHealth = Math.Max(0, (currentHealth - damage));
+            Debug.Log("Taken a hit!");
+            if (OnHit != null) OnHit();
 
             // If life drops to or under 0, die
             if (currentHealth <= 0)
