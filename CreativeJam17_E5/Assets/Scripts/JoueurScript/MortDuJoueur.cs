@@ -12,10 +12,12 @@ public class MortDuJoueur : MonoBehaviour
     public DeathShop deathShop;
 
     static public System.Action openShop;
+    static public int nbDeath;
 
     // Start is called before the first frame update
     void Start()
     {
+        nbDeath = 0;
         positionInitiale = transform.position;
         transform.GetComponentInChildren<DamageableEntity>().OnDeath += joueurMeurt;
         deathShop.ConfirmBuy += joueurRevivu;
@@ -28,7 +30,8 @@ public class MortDuJoueur : MonoBehaviour
     }
 
     void joueurMeurt()
-    {   
+    {
+        nbDeath++;
         transform.GetComponent<JoueurMouvement>().peutBouger = false;
         StartCoroutine(delaiMort());
     }

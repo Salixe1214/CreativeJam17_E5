@@ -102,6 +102,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             // End game!
+            PlayerPrefs.SetInt("nbDeath", MortDuJoueur.nbDeath);
             SceneManager.LoadScene(gameOverSceneName);
         }
     }
