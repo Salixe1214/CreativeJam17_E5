@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
         }
 
         player.GetComponentInChildren<DamageableEntity>().OnRevive += PlayerRevived;
-        player.GetComponent<MortDuJoueur>().openShop += VoidLevels;
+        MortDuJoueur.openShop += VoidLevels;
 
         // Leave the first level active tho
         levels[0].SetLevelActive(true);
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
             levels[i].OnLevelClear += LevelCleared;
         }
         player.GetComponentInChildren<DamageableEntity>().OnRevive += PlayerRevived;
-        player.GetComponent<MortDuJoueur>().openShop += VoidLevels;
+        MortDuJoueur.openShop += VoidLevels;
     }
 
     private void OnDisable()
@@ -50,7 +50,7 @@ public class LevelManager : MonoBehaviour
         if(player != null)
         {
             player.GetComponentInChildren<DamageableEntity>().OnRevive -= PlayerRevived;
-            player.GetComponent<MortDuJoueur>().openShop -= VoidLevels;
+            MortDuJoueur.openShop -= VoidLevels;
         }
     }
 

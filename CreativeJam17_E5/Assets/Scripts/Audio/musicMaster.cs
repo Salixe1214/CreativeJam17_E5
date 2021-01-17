@@ -68,6 +68,7 @@ public class musicMaster : MonoBehaviour
         // Abonnements pour music
         LevelManager.nextLevel += changeLevel;
         LevelManager.restart += restartLevels;
+        MortDuJoueur.openShop += shopOpen;
     }
 
     private void OnDisable()
@@ -90,6 +91,7 @@ public class musicMaster : MonoBehaviour
         // Abonnements pour music
         LevelManager.nextLevel -= changeLevel;
         LevelManager.restart -= restartLevels;
+        MortDuJoueur.openShop -= shopOpen;
     }
 
     // Update is called once per frame
@@ -230,9 +232,14 @@ public class musicMaster : MonoBehaviour
         lvl = newLvl;
         lvl = Mathf.Clamp(lvl, 0, musics.Length - 1);
         Debug.Log("Lvl = " + lvl);
-        if(musics[lvl] != null)
+        foreach(AudioSource music in musics)
         {
-            musics[lvl].Play();
+            music.Stop();
+        }
+
+        for(int i = 0; i <= lvl; i++)
+        {
+            musics[i].Play();
         }
     }
 
@@ -244,6 +251,14 @@ public class musicMaster : MonoBehaviour
             music.Stop();
         }
         musics[0].Play();
+    }
+
+    void shopOpen()
+    {
+        foreach (AudioSource music in musics)
+        {
+            music.Stop();
+        }
     }
 
     /// PlaySound ///
