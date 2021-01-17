@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7419661508251839358}
   - component: {fileID: 7419661508251839359}
   - component: {fileID: 7419661508251839344}
+  - component: {fileID: 6716331220307408747}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Untagged
@@ -69,6 +70,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6716331220307408747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419661508251839357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acf778a7006eab448c095a22670e682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
 --- !u!1 &7419661508833625297
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,10 +98,10 @@ GameObject:
   - component: {fileID: 7419661508833625302}
   - component: {fileID: 7419661508833625303}
   - component: {fileID: 7419661508833625321}
-  - component: {fileID: 7419661508833625322}
   - component: {fileID: 7419661508833625323}
   - component: {fileID: 3614422479432602242}
   - component: {fileID: 7482208446569996178}
+  - component: {fileID: 7319831808700386341}
   m_Layer: 0
   m_Name: Player
   m_TagString: MainCharacter
@@ -252,19 +266,6 @@ MonoBehaviour:
   WeaponBreakAnim: {fileID: 8043527978264819648, guid: 0313a8e10a5ab624081fedf27ab5e7b0,
     type: 3}
   animator: {fileID: 3614422479432602242}
---- !u!114 &7419661508833625322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419661508833625297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6acf778a7006eab448c095a22670e682, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
 --- !u!114 &7419661508833625323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,3 +315,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.25
+--- !u!114 &7319831808700386341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419661508833625297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73241e028ceef6489e045da3cf5bff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityTime: 1.5
+  playerHurtbox: {fileID: 7419661508251839359}
