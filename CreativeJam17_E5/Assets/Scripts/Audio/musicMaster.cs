@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class musicMaster : MonoBehaviour
 {
-    public AudioSource sourceFX, sourceUI;
+    [SerializeField] private AudioSource sourceFX, sourceUI;
     public AudioSource[] musics;
 
     // UI
@@ -174,7 +174,10 @@ public class musicMaster : MonoBehaviour
 
     void unlockDoor()
     {
+        Debug.Log("Door 1");
+
         playSFXSound(unlockDoorSound);
+        Debug.Log("Door 2");
     }
 
     void hitSoul(GameObject obj)
@@ -287,6 +290,12 @@ public class musicMaster : MonoBehaviour
 
     void playSFXSound(AudioClip[] clip)
     {
-        sourceFX.PlayOneShot(clip[(int)Random.Range(0, clip.Length)]);
+        AudioClip son = clip[(int)Random.Range(0, clip.Length)];
+        if(sourceFX != null)
+        {
+            Debug.Log("Door 4");
+            sourceFX.PlayOneShot(son);
+            Debug.Log("Door 5");
+        }
     }
 }

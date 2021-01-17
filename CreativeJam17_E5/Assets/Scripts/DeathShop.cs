@@ -119,24 +119,53 @@ public class DeathShop : MonoBehaviour
     void updateDmg(int lvl)
     {
         dmgTxt.text = lvl.ToString();
-        dmgExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        if (lvl >= 5)
+        {
+            dmgExpNext.text = "---";
+        }
+        else
+        {
+            dmgExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        }
     }
 
     void updateTimer(int lvl)
     {
         timerTxt.text = lvl.ToString();
-        timerExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        if (lvl >= 5)
+        {
+            timerExpNext.text = "---";
+        }
+        else
+        {
+            timerExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        }
     }
 
     void updateSpeed(int lvl)
     {
         speedTxt.text = lvl.ToString();
-        speedExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        if (lvl >= 5)
+        {
+            speedExpNext.text = "---";
+        }
+        else
+        {
+            speedExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        }
     }
 
     void updateResist(int lvl)
     {
         resistTxt.text = lvl.ToString();
-        resistExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        if (lvl >= 5)
+        {
+            resistTxt.text = "---";
+        }
+        else
+        {
+            resistExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
+        }
+
     }
 }
