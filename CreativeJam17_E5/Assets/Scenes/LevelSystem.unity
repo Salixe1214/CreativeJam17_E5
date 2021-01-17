@@ -1471,6 +1471,11 @@ PrefabInstance:
       propertyPath: deathShop
       value: 
       objectReference: {fileID: 872866529}
+    - target: {fileID: 1729461650612912319, guid: 2247297174daff44383dc0003abaf866,
+        type: 3}
+      propertyPath: shopMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: eed3cdbecda98c249ab0c928ca4991df, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2247297174daff44383dc0003abaf866, type: 3}
 --- !u!1 &401117800

@@ -29,6 +29,7 @@ public class musicMaster : MonoBehaviour
 
     // Music
     public AudioClip[] musicsLevels;
+    public AudioClip shopMusic;
     int lvl = 0;
 
     public DeathShop deathShop;
@@ -250,6 +251,7 @@ public class musicMaster : MonoBehaviour
         {
             music.Stop();
         }
+        musics[0].clip = musicsLevels[0];
         musics[0].Play();
     }
 
@@ -259,6 +261,8 @@ public class musicMaster : MonoBehaviour
         {
             music.Stop();
         }
+        musics[0].clip = shopMusic;
+        musics[0].Play();
     }
 
     /// PlaySound ///
