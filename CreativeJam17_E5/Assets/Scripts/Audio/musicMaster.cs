@@ -39,6 +39,7 @@ public class musicMaster : MonoBehaviour
         /// Abonnements pour UI ///
         
         statisticsGestion.lvlUp += levelUp;
+        statisticsGestion.gainExp += pickUp;
 
         button.buttunHover += UIHover;
 
