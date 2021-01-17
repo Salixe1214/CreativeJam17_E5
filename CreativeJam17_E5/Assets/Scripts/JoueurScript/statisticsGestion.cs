@@ -62,6 +62,7 @@ public class statisticsGestion : MonoBehaviour
             onResistUp.Invoke(niv_resistence);
 
         dropLootOnDeath.givePlayerXp += onAddExp;
+        LevelManager.onEndGame += endGame;
     }
     private void Awake()
     {
@@ -302,5 +303,17 @@ public class statisticsGestion : MonoBehaviour
             gainExp.Invoke();
         if (onXpChange != null)
             onXpChange.Invoke(exp);
+    }
+
+    void endGame()
+    {
+        Debug.Log(niv_damages);
+        Debug.Log(niv_speed);
+        Debug.Log(niv_resistence);
+        Debug.Log(niv_timer);
+        PlayerPrefs.SetInt("niveauDegat", niv_damages);
+        PlayerPrefs.SetInt("niveauVitesse", niv_speed);
+        PlayerPrefs.SetInt("niveauResistance", niv_resistence);
+        PlayerPrefs.SetInt("niveauTemps", niv_timer);
     }
 }
