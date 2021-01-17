@@ -226,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deatShop: {fileID: 0}
-  lvlUpSong: {fileID: 8300000, guid: 28448eca054309c44bd554d44fef5aa4, type: 3}
 --- !u!114 &7419661508833625321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,10 +238,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b43105b4f6fcc9408276936b85cd613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwordRef: {fileID: 0}
-  SpearRef: {fileID: 0}
-  BowRef: {fileID: 0}
-  SlingshotRef: {fileID: 0}
+  SwordRef: {fileID: 3097265146665863924, guid: 755e39a566d081e4294b73c1336fe62c,
+    type: 3}
+  SpearRef: {fileID: 1329687083024443765, guid: b4b830af3276ea3408f12bae7ccf3b81,
+    type: 3}
+  BowRef: {fileID: 1038051341890307797, guid: b69d3d704cd522c4a92fa10cecdd3c71, type: 3}
+  SlingshotRef: {fileID: 4309632176058024747, guid: caa494a9e60bcb1438b5c4d1e72981c0,
+    type: 3}
   TestWeaponRef: {fileID: 1038051341890307797, guid: b69d3d704cd522c4a92fa10cecdd3c71,
     type: 3}
   handsWeaponRef: {fileID: 3227194196513632196, guid: b156803d76ed13e41a153cc4e52f4eb0,
