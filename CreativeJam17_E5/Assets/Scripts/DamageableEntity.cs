@@ -27,7 +27,6 @@ private void Awake()
         {
             // Take damage
             currentHealth = Math.Max(0, (currentHealth - damage));
-            Debug.Log("Taken a hit!");
             if (OnHit != null) OnHit();
 
             // If life drops to or under 0, die

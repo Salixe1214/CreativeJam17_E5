@@ -32,7 +32,8 @@ public class LingeringAttack : MonoBehaviour
             damageable.TakeDamage(Damage);
 
             // Have a refresh system so you can take damage many times if he's over you all the time
-            StartCoroutine(RefreshHitbox());
+            if(gameObject.activeSelf == true)
+                StartCoroutine(RefreshHitbox());
         }
     }
 
