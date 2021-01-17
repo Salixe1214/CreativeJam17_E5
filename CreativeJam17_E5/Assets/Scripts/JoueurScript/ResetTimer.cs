@@ -14,16 +14,19 @@ public class ResetTimer : MonoBehaviour
     public GameObject texte;
 
     public DeathShop deathShop;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        tempsDeLaSession = 0;
+        tempsTotalDeJeu = 0;
         deathShop.ConfirmBuy += resetTempsApresShop;
     }
 
     // Update is called once per frame
     void Update()
     {
-        tempsDeLaSession = Time.time - tempsTotalDeJeu;
+        tempsDeLaSession += Time.deltaTime;
         if (tempsDeLaSession > resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
                                                                                 + tempsAjouteEphemere)
         {

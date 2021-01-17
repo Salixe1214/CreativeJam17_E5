@@ -30,6 +30,12 @@ public class LevelManager : MonoBehaviour
         levels[0].SetLevelActive(true);
     }
 
+    private void OnDestroy()
+    {
+        player.GetComponentInChildren<DamageableEntity>().OnRevive -= PlayerRevived;
+        player.GetComponent<MortDuJoueur>().openShop -= VoidLevels;
+    }
+
     private void PlayerRevived()
     {
         ResetLevels();
