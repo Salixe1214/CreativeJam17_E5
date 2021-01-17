@@ -934,6 +934,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7419661508518588232}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1934191515 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3614422479432602242, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+    type: 3}
+  m_PrefabInstance: {fileID: 7419661508518588232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7419661508518588232
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -946,6 +952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7419661508833625298, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1934191515}
     - target: {fileID: 7419661508833625300, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: m_RootOrder
@@ -1016,6 +1027,11 @@ PrefabInstance:
       propertyPath: deatShop
       value: 
       objectReference: {fileID: 612192281}
+    - target: {fileID: 7419661508833625321, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1934191515}
     - target: {fileID: 7419661508833625323, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: deathShop
