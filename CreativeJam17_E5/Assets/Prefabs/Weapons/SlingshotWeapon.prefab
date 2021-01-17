@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71243196453a8734a81e7800fce34ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackOffset: {x: 0, y: 1.5}
+  attackOffset: {x: 0, y: 4}
   weaponData: {fileID: 11400000, guid: bc7ecd55b7533be4aaece9414af1db6b, type: 2}
   projectile: {fileID: 7015681615232488453, guid: 20b8af6904b20b2418c6307d972e37b1,
     type: 3}

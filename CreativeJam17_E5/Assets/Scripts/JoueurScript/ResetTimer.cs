@@ -9,11 +9,13 @@ public class ResetTimer : MonoBehaviour
     public float tempsTotalDeJeu = 0;
 
     public float tempsAjouteEphemere = 0;
-    float tempsDeLaSession;
+    public float tempsDeLaSession;
 
     public GameObject texte;
 
     public DeathShop deathShop;
+
+    public float tempsMaximal;
 
     // Start is called before the first frame update
     void Awake()
@@ -23,12 +25,22 @@ public class ResetTimer : MonoBehaviour
         deathShop.ConfirmBuy += resetTempsApresShop;
     }
 
+    private void OnEnable()
+    {
+        LevelManager.onEndGame += endGame;
+    }
+
+    private void OnDisable()
+    {
+        LevelManager.onEndGame -= endGame;
+    }
+
     // Update is called once per frame
     void Update()
     {
         tempsDeLaSession += Time.deltaTime;
-        if (tempsDeLaSession > resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif()
-                                                                                + tempsAjouteEphemere)
+        tempsMaximal = resetTimer * transform.GetComponent<statisticsGestion>().getTimerModif() + tempsAjouteEphemere;
+        if (tempsDeLaSession > tempsMaximal)
         {
             float dommage = transform.GetComponentInChildren<DamageableEntity>().GetMaxHealth();
             transform.GetComponentInChildren<DamageableEntity>().TakeDamage(dommage);
@@ -62,5 +74,11 @@ public class ResetTimer : MonoBehaviour
     {
         tempsTotalDeJeu += tempsDeLaSession;
         tempsDeLaSession = 0;
+    }
+
+    void endGame()
+    {
+        Debug.Log(tempsTotalDeJeu + tempsDeLaSession);
+        PlayerPrefs.SetFloat("timeGame", tempsTotalDeJeu + tempsDeLaSession);
     }
 }
