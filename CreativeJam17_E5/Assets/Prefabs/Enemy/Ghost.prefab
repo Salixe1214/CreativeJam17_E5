@@ -310,6 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageable: {fileID: 6361065307658348715}
   toDisable: {fileID: 6361065307339300351}
+  deathVfx: {fileID: 3408727037054150377, guid: 15f525e3d67aef447bf84150fb192e15,
+    type: 3}
 --- !u!114 &3285201097575684507
 MonoBehaviour:
   m_ObjectHideFlags: 0

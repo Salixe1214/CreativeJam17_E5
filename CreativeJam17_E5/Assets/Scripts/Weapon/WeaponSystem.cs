@@ -21,9 +21,14 @@ public class WeaponSystem : MonoBehaviour
     private GameObject handsWeaponObj;
     private MeleeWeapon handsWeapon;
 
+    [Header("Anims")]
+    [SerializeField] private GameObject WeaponBreakAnim;
+
     public Action OnWeaponEquipped;
 
     public Animator animator;
+
+    private DamageableEntity damageable;
 
     private void Awake()
     {
@@ -39,6 +44,9 @@ public class WeaponSystem : MonoBehaviour
             testweapon.transform.localPosition = new Vector3(0, 0, 0);
             EquipWeapon(testweapon);
         }
+
+        damageable = GetComponentInChildren<DamageableEntity>();
+        damageable.OnDeath += DropCurrentWeapon;
     }
 
     private void Update()
@@ -67,8 +75,8 @@ public class WeaponSystem : MonoBehaviour
 
     private void BreakWeapon()
     {
-        currentWeapon.OnWeaponBroken -= BreakWeapon;
         Destroy(currentWeapon);
+        Instantiate(WeaponBreakAnim, new Vector3(transform.position.x, transform.position.y, 0.9f), Quaternion.identity);
 
         currentWeapon = null;
         currentWeaponObj = null;
