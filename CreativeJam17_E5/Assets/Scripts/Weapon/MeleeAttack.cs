@@ -58,7 +58,7 @@ public class MeleeAttack : MonoBehaviour
             }
             // Deal your damage
             // Possibility of a persistent projectile / hit-point system?
-            Debug.Log("Hit!" + collision.name);
+            // Debug.Log("Hit!" + collision.name);
             damageable.TakeDamage(Damage);
         }
     }

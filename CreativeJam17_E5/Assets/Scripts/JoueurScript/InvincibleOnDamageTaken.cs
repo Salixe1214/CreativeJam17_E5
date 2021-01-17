@@ -45,7 +45,7 @@ public class InvincibleOnDamageTaken : MonoBehaviour
             Color color = initialColor;
             float alphaValue = (0.3f * Mathf.Sin((float)(12.5f * (current + Mathf.PI)))) + 0.7f;
             float redValue = (0.3f * Mathf.Sin((float)(11.5f * (current + Mathf.PI)))) + 0.7f;
-            Debug.Log(redValue);
+            // Debug.Log(redValue);
             color.a = alphaValue;
             color.g = redValue;
             color.b = redValue;

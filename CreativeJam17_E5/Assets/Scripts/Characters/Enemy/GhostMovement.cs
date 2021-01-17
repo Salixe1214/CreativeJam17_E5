@@ -53,7 +53,7 @@ public class GhostMovement : MonoBehaviour
             // Cap at a certain speed
             movementBody.velocity = Vector2.ClampMagnitude(movementBody.velocity, velocityCap);
 
-            Debug.Log(movementBody.velocity.magnitude);
+            // Debug.Log(movementBody.velocity.magnitude);
         }
     }
 
