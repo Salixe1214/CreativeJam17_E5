@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd53622df84547c4eab551111b0b75f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetTimer: 10
+  resetTimer: 45
   tempsTotalDeJeu: 0
   tempsAjouteEphemere: 0
   texte: {fileID: 0}
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e871d45e2c45c4180a17f9aa92cfda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeImage: {fileID: 0}
   deathShop: {fileID: 0}
 --- !u!95 &3614422479432602242
 Animator:

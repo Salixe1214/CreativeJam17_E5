@@ -151,9 +151,6 @@ public class statisticsGestion : MonoBehaviour
                     break;
             }
 
-            
-            audioSource.PlayOneShot(lvlUpSong, 1.0f);
-
             return true;
         }
         else
