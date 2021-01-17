@@ -39,7 +39,6 @@ public class musicMaster : MonoBehaviour
         /// Abonnements pour UI ///
         
         statisticsGestion.lvlUp += levelUp;
-        statisticsGestion.gainExp += pickUp;
 
         button.buttunHover += UIHover;
 
@@ -48,7 +47,9 @@ public class musicMaster : MonoBehaviour
         ProjectileBehavior.onHit += arrowHit;
 
         /// Abonnements pour sfx ///
-        
+        statisticsGestion.gainExp += pickUp;
+
+        Ramassable.onPickUp += pickUp;
 
     }
 
@@ -127,66 +128,42 @@ public class musicMaster : MonoBehaviour
 
     void hitSoul(GameObject obj)
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(hitSoulSound));
-        }
+        playSFXSound(hitSoulSound);
     }
 
     void stone()
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(stoneSound));
-        }
+        playSFXSound(stoneSound);
     }
 
     void meleeAtk()
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(meleeAtkSound));
-        }
+        playSFXSound(meleeAtkSound);
     }
 
     void meleeEquip()
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(meleeEquipSound));
-        }
+        playSFXSound(meleeEquipSound);
     }
 
     void meleeHit(GameObject obj)
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(meleeHitSound));
-        }
+        playSFXSound(meleeHitSound);
     }
 
     void arrowHit(GameObject obj)
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(arrowHitSound));
-        }
+        playSFXSound(arrowHitSound);
     }
 
     void rangeEquip()
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(rangeEquipSound));
-        }
+        playSFXSound(rangeEquipSound);
     }
 
     void pickUp()
     {
-        if (!sonJou)
-        {
-            StartCoroutine(playUISound(pickUpSound));
-        }
+        playSFXSound(pickUpSound);
     }
 
     /// Music ///
