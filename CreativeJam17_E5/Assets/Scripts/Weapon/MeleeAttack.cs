@@ -6,6 +6,7 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private float lifetimeSeconds;
+    [SerializeField] private float knockbackForce = 12000.0f;
     [NonSerialized] public float Damage;
 
     private GameObject followObject;
@@ -62,5 +63,17 @@ public class MeleeAttack : MonoBehaviour
             if (OnAttackHit != null) OnAttackHit.Invoke();
             damageable.TakeDamage(Damage);
         }
+
+        // Is it a ghost?
+        Transform parent = collision.gameObject.transform.parent;
+        if (parent != null)
+        {
+            GhostMovement ghost = parent.GetComponentInChildren<GhostMovement>();
+            if (ghost != null)
+            {
+                ghost.Knockback(transform.up * knockbackForce);
+            }
+        }
+
     }
 }
