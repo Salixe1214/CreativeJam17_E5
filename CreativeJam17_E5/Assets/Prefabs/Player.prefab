@@ -175,6 +175,7 @@ MonoBehaviour:
   speed: 5
   velocity: {x: 0, y: 0}
   peutBouger: 1
+  animator: {fileID: 3614422479432602242}
 --- !u!50 &7419661508833625301
 Rigidbody2D:
   serializedVersion: 4
@@ -247,6 +248,7 @@ MonoBehaviour:
     type: 3}
   handsWeaponRef: {fileID: 3227194196513632196, guid: b156803d76ed13e41a153cc4e52f4eb0,
     type: 3}
+  animator: {fileID: 3614422479432602242}
 --- !u!114 &7419661508833625322
 MonoBehaviour:
   m_ObjectHideFlags: 0

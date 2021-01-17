@@ -13,6 +13,8 @@ public class JoueurMouvement : MonoBehaviour
 
     public bool peutBouger = true;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,16 @@ public class JoueurMouvement : MonoBehaviour
     void Update()
     {
         Vector2 inputDirection = new Vector2(0,0);
+
+        if (velocity == new Vector2(0, 0))
+        {
+            animator.SetBool("ZoeIdle", true);
+        }
+        else
+        {
+            animator.SetBool("ZoeIdle", false);
+        }
+
         if (peutBouger)
         {
             inputDirection = new Vector2(Input.GetAxisRaw("Horizontal"),
