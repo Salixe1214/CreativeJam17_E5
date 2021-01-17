@@ -29,6 +29,7 @@ public class WeaponSystem : MonoBehaviour
 
     public Animator animator;
 
+    private statisticsGestion stats;
     private DamageableEntity damageable;
 
     private void Awake()
@@ -48,6 +49,8 @@ public class WeaponSystem : MonoBehaviour
 
         damageable = GetComponentInChildren<DamageableEntity>();
         damageable.OnDeath += DropCurrentWeapon;
+
+        stats = GetComponent<statisticsGestion>();
     }
 
     private void Update()
@@ -95,14 +98,14 @@ public class WeaponSystem : MonoBehaviour
     {
         if (currentWeapon)
         {
-            currentWeapon.AttemptAttack();
+            currentWeapon.AttemptAttack(stats.getDamageModif());
             animator.SetBool("ZoeAttack", true);
             StartCoroutine(DeactivateAttackAnimation());
         }
         else
         {
             // Attack with your hands!
-            handsWeapon.AttemptAttack();
+            handsWeapon.AttemptAttack(stats.getDamageModif());
             animator.SetBool("ZoeAttack", true);
             StartCoroutine(DeactivateAttackAnimation());
         }

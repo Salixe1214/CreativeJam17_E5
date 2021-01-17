@@ -1419,6 +1419,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 727732799}
     m_Modifications:
+    - target: {fileID: 6361065306051100446, guid: 71fbefa98a38e83409f02295c7b523f3,
+        type: 3}
+      propertyPath: Damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6361065307339300350, guid: 71fbefa98a38e83409f02295c7b523f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -1488,6 +1493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ghost (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361065307658348715, guid: 71fbefa98a38e83409f02295c7b523f3,
+        type: 3}
+      propertyPath: maxHealth
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6361065306441815046, guid: 71fbefa98a38e83409f02295c7b523f3, type: 3}
@@ -2175,10 +2185,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 714.8, y: 400}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3172,25 +3182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &940109690 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7419661508251839357, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
-    type: 3}
-  m_PrefabInstance: {fileID: 241403674}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &940109691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 940109690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6acf778a7006eab448c095a22670e682, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
 --- !u!1001 &952952901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3929,7 +3920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1105836425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.117342, y: 21.70287, z: 9.003906}
+  m_LocalPosition: {x: -16.117342, y: 21.70287, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 727732799}

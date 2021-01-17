@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7419661508251839359}
   - component: {fileID: 7419661508251839344}
   - component: {fileID: 6716331220307408747}
+  - component: {fileID: 544332754425912414}
   m_Layer: 8
   m_Name: Hurtbox
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
+--- !u!114 &544332754425912414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419661508251839357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d862c5113ece9140a0f89c839c4f37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 7419661508833625303}
 --- !u!1 &7419661508833625297
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b2a2062277e8c44b3f865387763895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7.5
   velocity: {x: 0, y: 0}
   peutBouger: 1
   animator: {fileID: 3614422479432602242}
@@ -226,8 +240,10 @@ MonoBehaviour:
   resetTimer: 45
   tempsTotalDeJeu: 0
   tempsAjouteEphemere: 0
+  tempsDeLaSession: 0
   texte: {fileID: 0}
   deathShop: {fileID: 0}
+  tempsMaximal: 0
 --- !u!114 &7419661508833625303
 MonoBehaviour:
   m_ObjectHideFlags: 0
