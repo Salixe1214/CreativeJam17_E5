@@ -7,7 +7,7 @@ public class LoadSceneOnClick : MonoBehaviour
 {
     [SerializeField] private string SceneName;
 
-    public Canvas control, hud;
+    public Canvas control, hud, credits;
 
     private void Awake()
     {
@@ -18,6 +18,10 @@ public class LoadSceneOnClick : MonoBehaviour
         if(hud != null)
         {
             hud.enabled = false;
+        }
+        if(credits != null)
+        {
+            credits.enabled = false;
         }
     }
 
@@ -45,7 +49,10 @@ public class LoadSceneOnClick : MonoBehaviour
         if(step == 2)
         {
             hud.enabled = false;
+            credits.enabled = false;
         }
+        if (step == 3)
+            credits.enabled = true;
     }
 
 }
