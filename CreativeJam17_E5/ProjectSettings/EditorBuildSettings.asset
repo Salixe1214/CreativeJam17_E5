@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/salixeTests.unity
     guid: 9b1756273455f6840bb31e832244f83b
+  - enabled: 1
+    path: Assets/Scenes/LevelSystem 1.unity
+    guid: 099e62414d794564a87d39308f48d53e
   m_configObjects: {}
