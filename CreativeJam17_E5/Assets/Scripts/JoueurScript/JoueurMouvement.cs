@@ -48,7 +48,7 @@ public class JoueurMouvement : MonoBehaviour
             transform.eulerAngles = Vector3.back * angle;
         }
 
-        float niveauSpeed = transform.GetComponent<statisticsGestion>().getSpeedLevel();
+        float niveauSpeed = transform.GetComponent<statisticsGestion>().getSpeedModif();
 
         velocity = transform.up * speed * inputDirection.magnitude * niveauSpeed;
     }

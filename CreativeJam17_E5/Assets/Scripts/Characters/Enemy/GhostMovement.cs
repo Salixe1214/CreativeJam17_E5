@@ -46,11 +46,14 @@ public class GhostMovement : MonoBehaviour
         if (toChase)
         {
             // Move towards it faster and faster
-            Vector2 force = (toChase.transform.position - transform.position).normalized;
+            Vector2 force = (toChase.transform.position - transform.position);
+            force.Normalize();
             movementBody.AddForce(force * movementAcceleration * Time.deltaTime, ForceMode2D.Force);
 
             // Cap at a certain speed
             movementBody.velocity = Vector2.ClampMagnitude(movementBody.velocity, velocityCap);
+
+            Debug.Log(movementBody.velocity.magnitude);
         }
     }
 
@@ -58,6 +61,8 @@ public class GhostMovement : MonoBehaviour
     {
         // Reset chase
         toChase = null;
+        movementBody.velocity = Vector2.zero;
+        movementBody.angularVelocity = 0;
         transform.position = respawnPoint;
     }
 }

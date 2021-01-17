@@ -102,6 +102,11 @@ public class DeathShop : MonoBehaviour
 
     void onOpenShop()
     {
+        updateXp(stats.getExp());
+        updateDmg((int)stats.getDamageLevel());
+        updateTimer((int)stats.getTimerLevel());
+        updateSpeed((int)stats.getSpeedLevel());
+        updateResist((int)stats.getResistenceLevel());
         gameObject.SetActive(true);
     }
 
