@@ -12,7 +12,8 @@ public class RangedWeapon : Weapon
         currentDurability--;
 
         // Spawn projectile! It'll do the rest itself.
-        GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+        Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 2.0f);
+        GameObject proj = Instantiate(projectile, position, transform.rotation);
         proj.GetComponent<ProjectileBehavior>().Damage = weaponData.AttackDamage * modifier;
 
         base.ResolveAttack();
