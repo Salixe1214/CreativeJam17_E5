@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd53622df84547c4eab551111b0b75f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetTimer: 1
+  resetTimer: 10
   tempsTotalDeJeu: 0
   tempsAjouteEphemere: 0
   texte: {fileID: 1700660856}
