@@ -1091,7 +1091,7 @@ PrefabInstance:
     - target: {fileID: 7419661508833625302, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: resetTimer
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7419661508833625303, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
@@ -1572,21 +1572,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 727732799}
     m_Modifications:
-    - target: {fileID: 6361065307339300336, guid: 71fbefa98a38e83409f02295c7b523f3,
-        type: 3}
-      propertyPath: velocityCap
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361065307339300336, guid: 71fbefa98a38e83409f02295c7b523f3,
-        type: 3}
-      propertyPath: movementAcceleration
-      value: 1600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6361065307339300337, guid: 71fbefa98a38e83409f02295c7b523f3,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6361065307339300350, guid: 71fbefa98a38e83409f02295c7b523f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -1657,7 +1642,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6361065306441815046, guid: 71fbefa98a38e83409f02295c7b523f3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71fbefa98a38e83409f02295c7b523f3, type: 3}
 --- !u!4 &451121278 stripped
 Transform:
