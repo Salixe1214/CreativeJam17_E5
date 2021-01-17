@@ -30,6 +30,27 @@ public class LevelManager : MonoBehaviour
         levels[0].SetLevelActive(true);
     }
 
+    private void OnEnable()
+    {
+        for (int i = 0; i < levels.Count; i++)
+        {
+            levels[i].OnLevelClear += LevelCleared;
+        }
+        player.GetComponentInChildren<DamageableEntity>().OnRevive += PlayerRevived;
+        player.GetComponent<MortDuJoueur>().openShop += VoidLevels;
+    }
+
+    private void OnDisable()
+    {
+        for (int i = 0; i < levels.Count; i++)
+        {
+            levels[i].OnLevelClear -= LevelCleared;
+        }
+
+        player.GetComponentInChildren<DamageableEntity>().OnRevive -= PlayerRevived;
+        player.GetComponent<MortDuJoueur>().openShop -= VoidLevels;
+    }
+
     private void PlayerRevived()
     {
         ResetLevels();

@@ -66,6 +66,28 @@ public class musicMaster : MonoBehaviour
         music.Play();
     }
 
+    private void OnDestroy()
+    {
+        /// Abonnements pour UI ///
+
+        statisticsGestion.lvlUp -= levelUp;
+
+        button.buttunHover -= UIHover;
+
+        LingeringAttack.onHit -= hitSoul;
+        MeleeAttack.onHit -= meleeHit;
+        ProjectileBehavior.onHit -= arrowHit;
+
+        /// Abonnements pour sfx ///
+        statisticsGestion.gainExp -= pickUpXp;
+
+        Ramassable.onPickUp -= pickUpWeapon;
+
+        // Abonnements pour music
+        LevelManager.nextLevel -= changeLevel;
+        LevelManager.restart -= restartLevels;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -209,6 +231,7 @@ public class musicMaster : MonoBehaviour
 
     void restartLevels()
     {
+        lvl = 0;
         music.clip = musicsLevels[0];
         music.Play();
     }
