@@ -80,12 +80,14 @@ public class WeaponSystem : MonoBehaviour
         {
             currentWeapon.AttemptAttack();
             animator.SetBool("ZoeAttack", true);
+            StartCoroutine(DeactivateAttackAnimation());
         }
         else
         {
             // Attack with your hands!
             handsWeapon.AttemptAttack();
             animator.SetBool("ZoeAttack", true);
+            StartCoroutine(DeactivateAttackAnimation());
         }
     }
 
@@ -130,5 +132,18 @@ public class WeaponSystem : MonoBehaviour
         GameObject newWeapon = Instantiate(BowRef, this.transform);
         newWeapon.transform.localPosition = new Vector3(0, 0, 0);
         EquipWeapon(newWeapon);
+    }
+
+    private IEnumerator DeactivateAttackAnimation()
+    {
+        if (currentWeapon)
+        {
+            yield return new WaitForSeconds(currentWeapon.weaponData.CooldownSeconds);
+        }
+        else
+        {
+            yield return new WaitForSeconds(handsWeapon.weaponData.CooldownSeconds);
+        }
+        animator.SetBool("ZoeAttack", false);
     }
 }
