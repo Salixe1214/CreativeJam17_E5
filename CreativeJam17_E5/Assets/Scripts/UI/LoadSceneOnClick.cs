@@ -11,4 +11,10 @@ public class LoadSceneOnClick : MonoBehaviour
     {
         SceneManager.LoadScene(SceneName);
     }
+    
+    public void QuitterJeu()
+    {
+        Application.Quit();
+    }
+
 }
