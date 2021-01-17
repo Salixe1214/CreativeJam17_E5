@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 1496505192452252547}
   - component: {fileID: 1496505192452252546}
   - component: {fileID: 1496505192452252545}
+  - component: {fileID: 2618793614365688788}
   m_Layer: 5
   m_Name: b_Confirm
   m_TagString: Untagged
@@ -1068,6 +1069,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2618793614365688788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496505192452252575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595731012b30121459653c6816e748fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496505192465133447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1093,7 @@ GameObject:
   - component: {fileID: 1496505192465133451}
   - component: {fileID: 1496505192465133450}
   - component: {fileID: 1496505192465133449}
+  - component: {fileID: 4115451774874717670}
   m_Layer: 5
   m_Name: Buy Timer Lvl
   m_TagString: Untagged
@@ -1198,6 +1212,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4115451774874717670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496505192465133447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595731012b30121459653c6816e748fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496505192476135353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,6 +1392,7 @@ GameObject:
   - component: {fileID: 1496505192667400034}
   - component: {fileID: 1496505192667400033}
   - component: {fileID: 1496505192667400032}
+  - component: {fileID: 1221369151486244521}
   m_Layer: 5
   m_Name: Buy Dmg Lvl
   m_TagString: Untagged
@@ -1484,6 +1511,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1221369151486244521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496505192667400062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595731012b30121459653c6816e748fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496505192701630360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1858,7 @@ GameObject:
   - component: {fileID: 1496505192826181948}
   - component: {fileID: 1496505192826181947}
   - component: {fileID: 1496505192826181946}
+  - component: {fileID: 1684722388987204186}
   m_Layer: 5
   m_Name: Buy Speed Lvl
   m_TagString: Untagged
@@ -1937,6 +1977,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1684722388987204186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496505192826181944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595731012b30121459653c6816e748fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496505192932724188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,6 +2443,7 @@ GameObject:
   - component: {fileID: 1496505193461192064}
   - component: {fileID: 1496505193461192095}
   - component: {fileID: 1496505193461192094}
+  - component: {fileID: 12828054049281757}
   m_Layer: 5
   m_Name: Buy Resist Lvl
   m_TagString: Untagged
@@ -2509,6 +2562,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &12828054049281757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496505193461192092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595731012b30121459653c6816e748fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496505193540798794
 GameObject:
   m_ObjectHideFlags: 0

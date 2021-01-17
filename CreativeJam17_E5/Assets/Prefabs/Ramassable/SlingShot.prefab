@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e195882351d88438ab012552759b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bonusTemps: 15
+  joueur: {fileID: 0}
 --- !u!114 &-2700225198924114475
 MonoBehaviour:
   m_ObjectHideFlags: 0

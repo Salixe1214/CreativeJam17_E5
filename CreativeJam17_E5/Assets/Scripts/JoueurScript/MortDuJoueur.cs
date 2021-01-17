@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MortDuJoueur : MonoBehaviour
 {
+    [SerializeField] private Image fadeImage;
+    private float fadeDuration = 3;
+
     Vector3 positionInitiale;
     public DeathShop deathShop;
 
@@ -26,22 +30,51 @@ public class MortDuJoueur : MonoBehaviour
     void joueurMeurt()
     {   
         transform.GetComponent<JoueurMouvement>().peutBouger = false;
-        StartCoroutine(attendreTroisSecondes());
+        StartCoroutine(delaiMort());
     }
 
     void joueurRevivu()
     {
-        transform.GetComponent<JoueurMouvement>().peutBouger = true;
-        GetComponentInChildren<DamageableEntity>().Revive();
+        StartCoroutine(revivu());
     }
 
-    IEnumerator attendreTroisSecondes()
+    IEnumerator delaiMort()
     {
-        yield return new WaitForSeconds(3);
+        // Fade to black
+        float fadeStartTime = Time.time;
+        float fadeEndTime = fadeStartTime + fadeDuration;
+        while (Time.time < fadeEndTime)
+        {
+            Color fadeColor = fadeImage.color;
+            fadeColor.a = (Time.time - fadeStartTime) / (fadeEndTime - fadeStartTime); 
+            fadeImage.color = fadeColor;
+            yield return new WaitForEndOfFrame();
+        }
+
         transform.position = positionInitiale;
         if(openShop != null)
         {
             openShop.Invoke();
         }
+        yield return null;
+    }
+
+    IEnumerator revivu()
+    {
+        GetComponentInChildren<DamageableEntity>().Revive();
+
+        // Unfade from black
+        float fadeStartTime = Time.time;
+        float fadeEndTime = fadeStartTime + fadeDuration;
+        while (Time.time < fadeEndTime)
+        {
+            Color fadeColor = fadeImage.color;
+            fadeColor.a = 1 - ((Time.time - fadeStartTime) / (fadeEndTime - fadeStartTime));
+            fadeImage.color = fadeColor;
+            yield return new WaitForEndOfFrame();
+        }
+
+        transform.GetComponent<JoueurMouvement>().peutBouger = true;
+        yield return null;
     }
 }

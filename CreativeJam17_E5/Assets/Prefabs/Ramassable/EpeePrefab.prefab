@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6874380016321535750}
   - component: {fileID: 5954710295749806097}
   - component: {fileID: -6618888847255796376}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: EpeePrefab
   m_TagString: epee
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.74, y: 0.86}
+    oldSize: {x: 0.86, y: 3.74}
     newSize: {x: 3.74, y: 0.86}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bonusTemps: 15
+  joueur: {fileID: 0}
 --- !u!114 &5954710295749806097
 MonoBehaviour:
   m_ObjectHideFlags: 0

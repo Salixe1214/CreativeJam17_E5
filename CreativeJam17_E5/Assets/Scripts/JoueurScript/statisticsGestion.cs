@@ -36,16 +36,11 @@ public class statisticsGestion : MonoBehaviour
     public System.Action<int> onSpeedUp;
     public System.Action<int> onResistUp;
 
-    // Audio sources
-    public AudioClip lvlUpSong;
-    AudioSource audioSource;
+    static public System.Action lvlUp;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-            Debug.Log("Pas de source audio");
         if (deatShop != null)
         {
             deatShop.BuyDmg += onLevelUpDamage;
@@ -54,7 +49,7 @@ public class statisticsGestion : MonoBehaviour
             deatShop.BuyTimer += onLevelUpTimer;
         }
         else
-            Debug.Log("T'as pas mis le deathShop dans ton player/n C'est pour ça ça marche pas :(");
+            Debug.Log("T'as pas mis le deathShop dans ton player\n C'est pour ça ça marche pas :(");
 
         if (onXpChange != null)
             onXpChange.Invoke(exp);
@@ -114,6 +109,11 @@ public class statisticsGestion : MonoBehaviour
 
         if(exp > getLevUpExp(niv))
         {
+            if(lvlUp != null)
+            {
+                lvlUp.Invoke();
+            }
+
             // Si le joueur a assé d'exp
             // On lui retire cet exp et augmente le niveau desire
             exp -= getLevUpExp(niv);
@@ -151,9 +151,6 @@ public class statisticsGestion : MonoBehaviour
                     break;
             }
 
-            
-            audioSource.PlayOneShot(lvlUpSong, 1.0f);
-
             return true;
         }
         else
@@ -166,6 +163,8 @@ public class statisticsGestion : MonoBehaviour
     public int getLevUpExp(int lvl)
     {
         lvl = lvl + 1; // Car on veut l'exp pour un niveau plus haut
+        if (lvl > 5)
+            return 10000000;
 
         return (int) Mathf.Ceil((0.04f * (Mathf.Pow(lvl, 3))) + (0.8f * (Mathf.Pow(lvl, 2))) + (2 * lvl));
     }

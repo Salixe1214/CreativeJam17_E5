@@ -38,9 +38,10 @@ public class Ramassable : MonoBehaviour
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
                 }
                 joueur.GetComponent<WeaponSystem>().EquipNewSword();
+                Destroy(gameObject);
             }
         }
-        if(estSurUneLance)
+        else if(estSurUneLance)
         {
             if (Input.GetMouseButtonDown(1))
             {
@@ -49,9 +50,10 @@ public class Ramassable : MonoBehaviour
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
                 }
                 joueur.GetComponent<WeaponSystem>().EquipNewSpear();
+                Destroy(gameObject);
             }
         }
-        if(estSurUnLancePierre)
+        else if (estSurUnLancePierre)
         {
             if (Input.GetMouseButtonDown(1))
             {
@@ -60,9 +62,10 @@ public class Ramassable : MonoBehaviour
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
                 }
                 joueur.GetComponent<WeaponSystem>().EquipNewSlingshot();
+                Destroy(gameObject);
             }
         }
-        if(estSurUnArc)
+        else if (estSurUnArc)
         {
             if (Input.GetMouseButtonDown(1))
             {
@@ -71,6 +74,7 @@ public class Ramassable : MonoBehaviour
                     joueur.GetComponent<WeaponSystem>().DropCurrentWeapon();
                 }
                 joueur.GetComponent<WeaponSystem>().EquipNewBow();
+                Destroy(gameObject);
             }
         }
     }

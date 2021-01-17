@@ -1217,11 +1217,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3614422479432602242, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ee94eb1fe5493734aa0a38e775ce1f8b, type: 2}
     - target: {fileID: 7419661508833625297, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7419661508833625299, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42480a415fae3ea4e9ef374ed0afda5e,
+        type: 3}
     - target: {fileID: 7419661508833625300, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: m_RootOrder

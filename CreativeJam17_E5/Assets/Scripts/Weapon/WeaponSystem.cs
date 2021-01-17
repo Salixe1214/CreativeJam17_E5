@@ -23,6 +23,8 @@ public class WeaponSystem : MonoBehaviour
 
     public Action OnWeaponEquipped;
 
+    public Animator animator;
+
     private void Awake()
     {
         // Instantiate hands object
@@ -31,9 +33,12 @@ public class WeaponSystem : MonoBehaviour
         handsWeapon = handsWeaponObj.GetComponent<MeleeWeapon>();
 
         // Instantiate hands object
-        GameObject testweapon = Instantiate(TestWeaponRef, this.transform);
-        testweapon.transform.localPosition = new Vector3(0, 0, 0);
-        EquipWeapon(testweapon);
+        if (TestWeaponRef)
+        {
+            GameObject testweapon = Instantiate(TestWeaponRef, this.transform);
+            testweapon.transform.localPosition = new Vector3(0, 0, 0);
+            EquipWeapon(testweapon);
+        }
     }
 
     private void Update()
@@ -74,11 +79,15 @@ public class WeaponSystem : MonoBehaviour
         if (currentWeapon)
         {
             currentWeapon.AttemptAttack();
+            animator.SetBool("ZoeAttack", true);
+            StartCoroutine(DeactivateAttackAnimation());
         }
         else
         {
             // Attack with your hands!
             handsWeapon.AttemptAttack();
+            animator.SetBool("ZoeAttack", true);
+            StartCoroutine(DeactivateAttackAnimation());
         }
     }
 
@@ -123,5 +132,18 @@ public class WeaponSystem : MonoBehaviour
         GameObject newWeapon = Instantiate(BowRef, this.transform);
         newWeapon.transform.localPosition = new Vector3(0, 0, 0);
         EquipWeapon(newWeapon);
+    }
+
+    private IEnumerator DeactivateAttackAnimation()
+    {
+        if (currentWeapon)
+        {
+            yield return new WaitForSeconds(currentWeapon.weaponData.CooldownSeconds);
+        }
+        else
+        {
+            yield return new WaitForSeconds(handsWeapon.weaponData.CooldownSeconds);
+        }
+        animator.SetBool("ZoeAttack", false);
     }
 }

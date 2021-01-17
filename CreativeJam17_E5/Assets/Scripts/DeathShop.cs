@@ -78,6 +78,7 @@ public class DeathShop : MonoBehaviour
     {
         if (BuyTimer != null)
             BuyTimer.Invoke();
+
     }
 
     public void onBuySpeedClic()

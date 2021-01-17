@@ -14,6 +14,8 @@ public class MeleeAttack : MonoBehaviour
     private float deathTime;
     public Action OnAttackHit;
 
+    static public Action<GameObject> onHit;
+
     private void Awake()
     {
         deathTime = Time.time + lifetimeSeconds;
@@ -50,6 +52,10 @@ public class MeleeAttack : MonoBehaviour
         DamageableEntity damageable = collision.gameObject.GetComponent<DamageableEntity>();
         if (damageable)
         {
+            if (onHit != null)
+            {
+                onHit.Invoke(collision.gameObject);
+            }
             // Deal your damage
             // Possibility of a persistent projectile / hit-point system?
             Debug.Log("Hit!" + collision.name);
