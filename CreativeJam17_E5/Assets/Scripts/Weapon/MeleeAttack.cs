@@ -29,6 +29,7 @@ public class MeleeAttack : MonoBehaviour
         {
             Vector2 followPos = new Vector2(followObject.transform.position.x, followObject.transform.position.y);
             transform.position = followPos + offset;
+            transform.position = new Vector3(transform.position.x, transform.position.y, -2.0f);
         }
 
         if (Time.time >= deathTime)

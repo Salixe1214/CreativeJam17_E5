@@ -11316,7 +11316,7 @@ PrefabInstance:
     - target: {fileID: 7419661508833625302, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
       propertyPath: resetTimer
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7419661508833625303, guid: 095bd58ee308bc245ae2b4e4b0bbb256,
         type: 3}
