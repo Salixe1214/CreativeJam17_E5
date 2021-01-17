@@ -13,7 +13,7 @@ public class PlayerHudToggler : MonoBehaviour
         death = GameObject.FindGameObjectWithTag("MainCharacter").GetComponent<MortDuJoueur>();
 
         shop.ConfirmBuy += OpenHud;
-        death.openShop += CloseHud;
+        MortDuJoueur.openShop += CloseHud;
     }
 
     private void OpenHud()
