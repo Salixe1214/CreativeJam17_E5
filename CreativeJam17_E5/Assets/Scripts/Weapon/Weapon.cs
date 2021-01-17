@@ -25,18 +25,18 @@ public class Weapon : MonoBehaviour
     }
 
     // Try an attack. Accounts for cooldown.
-    public void AttemptAttack()
+    public void AttemptAttack(float modifier)
     {
         float allowedAttackTime = lastAttack + weaponData.CooldownSeconds;
         if (allowedAttackTime <= Time.time)
         {
-            Attack();
+            Attack(modifier);
         }
     }
 
     // To implement by children weapons. Else it'll just do this.
     // Attack. Protected so you can't externally force an attack.
-    protected virtual void Attack()
+    protected virtual void Attack(float modifier)
     {
         ResolveAttack();
     }
