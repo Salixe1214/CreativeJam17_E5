@@ -55,6 +55,11 @@ public class GhostMovement : MonoBehaviour
         }
     }
 
+    public void Knockback(Vector2 direction)
+    {
+        movementBody.AddForce(direction, ForceMode2D.Impulse);
+    }
+
     public void Respawn()
     {
         // Reset chase

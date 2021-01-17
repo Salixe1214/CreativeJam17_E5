@@ -17,6 +17,11 @@ public class LingeringAttack : MonoBehaviour
         attackCollider = GetComponent<Collider2D>();
     }
 
+    private void OnEnable()
+    {
+        attackCollider.enabled = true;
+    }
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         // Is it damageable?

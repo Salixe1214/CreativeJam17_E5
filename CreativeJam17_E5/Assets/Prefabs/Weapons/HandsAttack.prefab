@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetimeSeconds: 0.25
+  knockbackForce: 1600
 --- !u!61 &3416590453900670056
 BoxCollider2D:
   m_ObjectHideFlags: 0
