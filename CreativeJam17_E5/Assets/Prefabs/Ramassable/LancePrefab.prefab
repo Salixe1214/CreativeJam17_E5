@@ -11,11 +11,9 @@ GameObject:
   - component: {fileID: 8976757890707716344}
   - component: {fileID: 957509107538121892}
   - component: {fileID: 665654385737261892}
-  - component: {fileID: 2553009117699001483}
   - component: {fileID: 255846276740115009}
   - component: {fileID: 28690300316047610}
   - component: {fileID: 2701274343994510480}
-  - component: {fileID: 7340011089539150822}
   m_Layer: 0
   m_Name: LancePrefab
   m_TagString: lance
@@ -103,20 +101,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2553009117699001483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329687083024443765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651dd486094182e43bd6a3ebd83b4346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 20
-  lifetimeSeconds: 1
 --- !u!50 &255846276740115009
 Rigidbody2D:
   serializedVersion: 4
@@ -164,19 +148,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26b505a524f7464ba34879bef5ea6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7340011089539150822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329687083024443765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c864fe990108be740a3bf31b3090c50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackOffset: {x: 0, y: 0}
-  weaponData: {fileID: 11400000, guid: 615834c735c7058469032dd52b56bbd0, type: 2}
-  meleeAttack: {fileID: 7991903687170362476, guid: 4a9ca12eb1942a840a34434d83debe44,
-    type: 3}
