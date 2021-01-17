@@ -113,30 +113,30 @@ public class DeathShop : MonoBehaviour
     // Methodes pour updater l'information
     void updateXp(int xp)
     {
-        xpText.text = xp.ToString();
+        xpText.text = xp.ToString() + " EXP";
     }
 
     void updateDmg(int lvl)
     {
         dmgTxt.text = lvl.ToString();
-        dmgExpNext.text = stats.getLevUpExp(lvl).ToString();
+        dmgExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
     }
 
     void updateTimer(int lvl)
     {
         timerTxt.text = lvl.ToString();
-        timerExpNext.text = stats.getLevUpExp(lvl).ToString();
+        timerExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
     }
 
     void updateSpeed(int lvl)
     {
         speedTxt.text = lvl.ToString();
-        speedExpNext.text = stats.getLevUpExp(lvl).ToString();
+        speedExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
     }
 
     void updateResist(int lvl)
     {
         resistTxt.text = lvl.ToString();
-        resistExpNext.text = stats.getLevUpExp(lvl).ToString();
+        resistExpNext.text = stats.getLevUpExp(lvl).ToString() + " EXP";
     }
 }
