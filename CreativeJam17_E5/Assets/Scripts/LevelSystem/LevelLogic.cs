@@ -68,11 +68,14 @@ public class LevelLogic : MonoBehaviour
 
     public void SetLevelActive(bool active)
     {
-        for (int i = 0; i < enemies.Count; i++)
+        if(enemies != null)
         {
-            if (enemies[i].GetComponentInChildren<DamageableEntity>().IsAlive())
+            for (int i = 0; i < enemies.Count; i++)
             {
-                enemies[i].SetActive(active);
+                if (enemies[i].GetComponentInChildren<DamageableEntity>().IsAlive())
+                {
+                    enemies[i].SetActive(active);
+                }
             }
         }
 
